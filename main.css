@@ -1,0 +1,1124 @@
+*
+{
+margin: 0;
+padding: 0;
+font-family: arial, sans-serif;
+font-size: 12px;
+list-style: none;
+}
+
+div.clear
+{
+clear: both;
+}
+
+/* ================== GLOBAL */
+
+a
+{
+text-decoration: none;
+color: #ff6666;
+}
+
+a:hover
+{
+text-decoration: underline;
+color: #aa0000;
+}
+
+a:active
+{
+text-decoration: none;
+}
+
+a img
+{
+border: none;
+}
+
+h1
+{
+font-size: 18px;
+border-bottom: 3px solid #ff6666;
+margin: 10px 0;
+}
+
+h3
+{
+font-size: 18px;
+border-bottom: 3px solid #ff6666;
+margin: 10px 0 0 0;
+}
+
+
+/* ================== MAIN */
+
+#main
+{
+width: 950px;
+margin: 0 auto;
+background: url('http://www.map-factory.org/media/image/layout/logo.png') 0 10px no-repeat;
+}
+
+
+/* ================== PUB */
+
+#pub_top
+{
+width: 728px;
+height: 90px;
+background: #f9f9f9;
+}
+
+#pub_middle
+{
+width: 300px;
+height: 250px;
+background: #f9f9f9;
+}
+
+
+/* ================== TOP */
+
+#logo
+{
+display: block;
+width: 300px;
+height: 128px;
+margin: 5px 0 0 0;
+}
+
+#submitButton
+{
+float: right;
+margin: 66px 0 0 0;
+}
+
+
+/* ================== FOOTER */
+
+#footer
+{
+margin: 30px 0 0 0;
+padding: 5px 0 0 0;
+text-align: center;
+background: #f9f9f9;
+border-top: solid 1px #f0f0f0;
+color: #999;
+}
+
+#footer p {
+margin-top: 5px;
+color: #ccc;
+text-align: center;
+}
+
+#footer ul {
+margin: 10px 0;
+line-height: 20px;
+}
+
+#footer ul li {
+display: inline;
+border-left: solid 1px #ccc;
+padding: 0 0 0 5px;
+}
+
+#footer ul li.first {
+border: none;
+}
+
+#footer ul li a h5 {
+font-weight: normal;
+display: inline;
+}
+
+#footer ul li a,
+#footer ul li a:hover {
+color: #ccc;
+}
+
+
+/* ================== SEARCH */
+
+#search
+{
+border: solid 1px #ff6666;
+border-width: 1px 0;
+background: url('http://www.map-factory.org/media/image/layout/search_background.png');
+padding: 5px 10px;
+margin: 10px 0;
+position: relative;
+}
+
+#search input,
+#search select
+{
+margin: 0 10px 0 0;
+}
+
+#search input.field
+{
+width: 200px;
+}
+
+#search select,
+#search select option
+{
+font-family: verdana;
+}
+
+#search select
+{
+height: 22px;
+}
+
+#search select option
+{
+color: #999;
+_color: #000;
+font-weight: normal;
+border-bottom: solid 1px #f0f0f0;
+padding: 2px;
+}
+
+
+/* ================== COLUMNS */
+
+#colLeft_map
+{
+width: 640px;
+float: left;
+}
+
+#colRight_map
+{
+width: 300px;
+float: left;
+margin: 0 0 0 10px;
+}
+
+#colLeft_list
+{
+width: 728px;
+float: left;
+}
+
+#colRight_list
+{
+width: 212px;
+float: left;
+margin: 0 0 0 10px;
+}
+
+#colLeft_list p.resultInfo,
+#colLeft_map p.resultInfo
+{
+margin: 0 5px 0 0;
+text-align: right;
+}
+
+#colCenter
+{
+padding: 0 75px;
+margin: 30px 0 40px 0;
+}
+
+
+/* ================== MAP LIST */
+
+#noResult
+{
+margin: 20px 0 100px 20px;
+}
+
+ul.maplist li.line
+{
+height: 60px;
+margin: 5px 0 5px 0;
+position: relative;
+}
+
+ul.maplist li.odd
+{
+background: #f9f9f9;
+}
+
+ul.maplist li.link
+{
+clear: both;
+padding: 10px 0 5px 0;
+}
+
+ul.maplist li.line span.info
+{
+text-align: right;
+position: absolute;
+right: 0;
+color: #aaa;
+margin: 42px 5px 0 0;
+}
+
+ul.maplist li.line span.info span.star
+{
+text-align: left;
+background:url(http://www.map-factory.org/media/image/layout/star_all-off.gif) no-repeat top left;
+margin: 0 0 0 4px;
+display: block;
+width: 80px;
+height: 14px;
+float: right;
+}
+
+ul.maplist li.line span.info span.star span
+{
+background:url(http://www.map-factory.org/media/image/layout/star_all-on.gif) no-repeat top left;
+display: block;
+height: 14px;
+}
+
+ul.maplist li.line a.preview
+{
+float: left;
+margin: 0 10px 0 0;
+}
+
+ul.maplist li.line ul
+{
+float: left;
+}
+
+ul.maplist.more li.line ul
+{
+width: 195px;
+}
+
+ul.maplist li.line ul li
+{
+margin: 4px 0;
+}
+
+ul.maplist li.line ul li strong
+{
+font-size: 14px;
+}
+
+
+/* ================== PAGINATION */
+
+div.pagination
+{
+border-top: solid 1px #fff;
+position: relative;
+margin: 20px 0 20px 0;
+}
+
+div.pagination li
+{
+display: inline;
+margin: 0 5px 0 0;
+}
+
+div.pagination li a,
+div.pagination li span
+{
+border: solid 1px #fff;
+padding: 2px 5px;
+font-size: 14px;
+}
+
+div.pagination li.on a
+{
+font-weight: bold;
+color: #333;
+}
+
+div.pagination a.prev,
+div.pagination a.next
+{
+font-weight: bold;
+}
+
+div.pagination a.prev
+{
+float: left;
+margin: 0 10px 0 0;
+}
+
+div.pagination a.next
+{
+float: right;
+}
+
+.pagination li.off a
+{
+border: solid 1px #f0f0f0;
+}
+
+.pagination li a:hover
+{
+border: solid 1px #ff6666;
+background: #ff6666;
+color: #fff;
+text-decoration: none;
+}
+
+.pagination .center
+{
+text-align: center;
+display: block;
+width: 100%;
+color: #999;
+font-style: italic;
+margin-bottom: -14px;
+}
+
+
+/* ================== BLOCK */
+
+ul.block
+{
+border: solid 1px #ccc;
+border-width: 0 1px 1px 1px;
+padding: 5px;
+}
+
+
+/* ================== COMMENT */
+
+ul.block.comment li
+{
+border-top: 1px solid #f0f0f0;
+padding: 5px 0;
+line-height: 16px;
+}
+
+ul.block.comment li:first-child
+{
+border-top: none;
+}
+
+ul.block.comment li strong
+{
+color: #999;
+}
+
+ul.block.comment li strong span
+{
+font-weight: normal;
+}
+
+
+/* ================== PREVIEW */
+
+#preview
+{
+border: solid 2px #ccc;
+border-width: 2px 0;
+height: 480px;
+position: relative;
+}
+
+#preview ul
+{
+position: absolute;
+right: 0;
+z-index: 10;
+margin: 5px 0 0 0;
+}
+
+#preview ul li
+{
+margin: 0 5px;
+}
+
+#preview ul li img
+{
+cursor: pointer;
+border: solid 2px #999;
+-moz-border-radius: 4px;
+}
+
+#preview ul li img.on
+{
+border: solid 2px #ff6666;
+}
+
+#preview ul li span
+{
+background: #999;
+display: block;
+text-align: center;
+margin: 0 -2px;
+height: 10px;
+cursor: pointer;
+color: #fff;
+}
+
+
+/* ================== RATTING */
+
+#ratting
+{
+width: 200px;
+border-right: solid 1px #f0f0f0;
+float: left;
+}
+
+#ratting div
+{
+margin: 2px 0;
+height: 20px;
+}
+
+#ratting strong
+{
+float: left;
+display: block;
+width: 80px;
+padding: 5px 0 0 0;
+}
+
+#ratting div.on span
+{
+cursor: pointer;
+}
+
+#ratting span
+{
+float: left;
+width: 20px;
+height: 20px;
+display: block;
+background: url(http://www.map-factory.org/media/image/layout/star_off.gif) center center no-repeat;
+}
+
+#ratting div.off span
+{
+background: none;
+}
+
+#ratting div.hover span
+{
+background: none;
+}
+
+#ratting div span.on
+{
+background: url(http://www.map-factory.org/media/image/layout/star_on.gif) center center no-repeat !important;
+}
+
+
+/* ================== COMMENT LIST */
+
+#commentList div.pagination
+{
+margin: 20px 0 10px 0;
+}
+
+#commentList p.resultInfo
+{
+margin: 10px 0 0 0;
+color: #999;
+}
+
+#commentList li.comment span
+{
+color: #999;
+margin: 0 0 0 5px;
+font-style: italic;
+}
+
+#commentList ul.repllies
+{
+margin: 5px 0 5px 20px;
+border-left: 2px solid #ccc;
+}
+
+#commentList li.comment p
+{
+margin: 2px 0;
+padding: 0 0 2px 0;
+}
+
+#commentList li.comment em
+{
+color: #ff6666;
+cursor: pointer;
+}
+
+#commentList li.comment em.hover
+{
+text-decoration: underline;
+color: #aa0000;
+}
+
+#commentList li.comment
+{
+margin: 10px 0;
+padding: 10px 0 0px 0;
+border-top: solid 1px #f0f0f0;
+}
+
+#commentList li.comment:first-child
+{
+padding: 0;
+border-top: none;
+}
+
+#commentList li.repply
+{
+margin: 5px 0 5px 5px;
+}
+
+#commentList li.repply
+{
+}
+
+#commentList li.comment form
+{
+margin: 10px 0 0 0;
+}
+
+#commentList li.comment form div
+{
+margin: 5px 0;
+}
+
+#commentList li.comment form div label
+{
+float: left;
+display: block;
+width: 60px;
+}
+
+#commentList li.comment form input.field
+{
+width: 150px;
+}
+
+#commentList li.comment form textarea
+{
+width: 400px;
+height: 50px;
+}
+
+#commentList li.comment form input.submit
+{
+margin: 0 0 0 60px;
+}
+
+#commentList div.pagination li.off span,
+#commentList div.pagination span.next,
+#commentList div.pagination span.prev
+{
+cursor: pointer;
+color: #ff6666;
+}
+
+#commentList div.pagination li.off span:hover,
+#commentList div.pagination span.next:hover,
+#commentList div.pagination span.prev:hover
+{
+text-decoration: underline;
+color: #aa0000;
+}
+
+#commentList div.pagination span.next
+{
+float: right;
+}
+
+#commentList div.pagination span.prev
+{
+float: left;
+margin: 2px 5px 0 0;
+}
+
+#commentList div.pagination li
+{
+margin: 0;
+}
+
+#commentList div.pagination li.on span
+{
+color: #000;
+}
+
+#commentPost form
+{
+margin: 10px 0;
+}
+
+#commentPost form div
+{
+margin: 5px 0;
+}
+
+#commentPost form div label
+{
+float: left;
+display: block;
+width: 60px;
+}
+
+#commentPost form input.field
+{
+width: 150px;
+}
+
+#commentPost form textarea
+{
+width: 400px;
+height: 100px;
+}
+
+#commentPost form input.submit
+{
+margin: 0 0 0 60px;
+}
+
+
+/* ================== TOGGLE BLOCK */
+
+div.toggleBlock
+{
+border: dashed 1px #ccc;
+margin: 15px 0;
+padding: 5px 10px;
+}
+
+div.toggleBlock strong.toggle
+{
+display: block;
+background: #f9f9f9;
+padding: 2px 5px 2px 15px;
+margin: -2px -5px;
+cursor: pointer;
+background: url(http://www.map-factory.org/media/image/layout/triangle_right.png) no-repeat left center;
+}
+
+div.toggleBlock strong.toggle.on
+{
+background: url(http://www.map-factory.org/media/image/layout/triangle_down.png) no-repeat left center;
+}
+
+div.toggleBlock strong.toggle:hover
+{
+background-color: #f0f0f0;
+}
+
+
+/* ================== MAP */
+
+#description
+{
+position: relative;
+padding: 0 5px 10px 5px;
+line-height: 16px;
+}
+
+#map div.info
+{
+background: #f9f9f9;
+padding: 5px;
+}
+
+
+#map div.info div.pub
+{
+float: right;
+}
+
+#map div.info ol.detail
+{
+margin: 5px 0 0 20px;
+float: left;
+}
+
+#map div.info ol.detail li
+{
+margin: 0 0 10px 0;
+}
+
+
+/* ================== NICE TEXT */
+
+.niceText p
+{
+margin: 8px 0;
+text-align: justify;
+line-height: 16px;
+font-size: 12px;
+position: relative;
+}
+
+.niceText ul
+{
+padding: 0 0 0 30px;
+}
+
+.niceText ul li
+{
+line-height: 18px;
+list-style: circle !important;
+}
+
+.niceText h2
+{
+font-size: 12px;
+color: #000;
+margin: 30px 0 10px 0;
+}
+
+.niceText form
+{
+margin: 20px 0;
+border: solid 1px #f0f0f0;
+background: #f9f9f9;
+}
+
+.niceText div
+{
+margin: 10px;
+}
+
+.niceText div label
+{
+float: left;
+display: block;
+width: 170px;
+font-weight: bold;
+}
+
+.niceText div .field
+{
+width: 180px;
+}
+
+.niceText div textarea
+{
+width: 500px;
+height: 200px;
+}
+
+.niceText div .submit
+{
+margin: 10px 0 10px 170px;
+}
+
+
+/* ================== LATEST ACTIVITY */
+
+ul.block.activity li.map
+{
+position: relative;
+z-index: 10;
+}
+
+ul.block.activity li.map a
+{
+cursor: pointer;
+padding: 5px 0;
+display: block;
+color: #999;
+border-top: solid 1px #f0f0f0;
+}
+
+ul.block.activity li.map:first-child a
+{
+border: none;
+}
+
+ul.block.activity li.map a:hover
+{
+background: #fff0f0;
+color: #aa0000;
+text-decoration: none;
+}
+
+ul.block.activity span.info
+{
+display: block;
+margin: 4px 0 0 0;
+height: 16px;
+}
+
+ul.block.activity span.info span
+{
+padding: 0 0 0 20px;
+margin: 0 10px 0 0;
+color: #999;
+font-weight: bold;
+float: left;
+}
+
+ul.block.activity span.info span.download
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_download_grey.png') left center no-repeat;
+}
+
+ul.block.activity span.info span.vote
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_star_grey.png') left center no-repeat;
+}
+
+ul.block.activity span.info span.comment
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_comment_grey.png') left center no-repeat;
+}
+
+ul.block.activity a:hover span.info span.download
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_download.png') left center no-repeat;
+}
+
+ul.block.activity a:hover span.info span.vote
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_star.png') left center no-repeat;
+}
+
+ul.block.activity a:hover span.info span.comment
+{
+background: url('http://www.map-factory.org/media/image/layout/icon_comment.png') left center no-repeat;
+}
+
+#activityPreview
+{
+background: #ccc;
+width: 80px;
+height: 60px;
+position: absolute;
+margin: 0 0 0 -84px;
+border: solid 2px #ccc;
+}
+
+
+/* ================== SUBMIT A MAP */
+
+#submitMap
+{
+position: relative;
+border: solid 1px #f0f0f0;
+background: #f9f9f9;
+margin: 20px 100px;
+padding: 5px 10px;
+}
+
+#submitMap div.line
+{
+padding: 5px 0;
+clear: both;
+}
+
+#submitMap label
+{
+float: left;
+display: block;
+width: 150px;
+font-weight: bold;
+}
+
+#submitMap input.field
+{
+width: 150px;
+}
+
+#submitMap textarea
+{
+width: 420px;
+height: 120px;
+}
+
+#submitMap input.submit
+{
+margin: 0 0 0 150px;
+*margin: 0;
+}
+
+#submitMap div.line em
+{
+color: #999;
+}
+
+#submitMap div.line span
+{
+color: #ff0000;
+}
+
+#submitMap div.line a
+{
+color: #6666cc;
+}
+
+#submitMap div.line.auto ul
+{
+position: absolute;
+margin: 0 0 0 150px;
+*margin: 20px 0 0 -157px;
+background: #fff;
+width: 150px;
+border: solid 1px #ccc;
+border-top: none;
+}
+
+#submitMap div.line.auto ul li
+{
+padding: 2px;
+color: #999;
+cursor: pointer;
+}
+
+#submitMap div.line.auto ul li.selected
+{
+background: #ffffcc;
+}
+
+#submitMap div.line object
+{
+display: block;
+width: 61px;
+height: 22px;
+margin: 5px 0 10px 150px;
+*margin-bottom: -20px;
+}
+
+#submitScreenshotList,
+#submitFileList
+{
+margin: 0 0 10px 150px !important;
+*margin: 0;
+*padding: 25px 0 0 150px !important;
+}
+
+#submitScreenshotList span:hover,
+#submitFileList span:hover
+{
+cursor: pointer;
+text-decoration: underline;
+}
+
+#submitMap div.line div
+{
+margin: 10px 0 0 10px;
+float: left;
+}
+
+#submitMapProgress
+{
+border: solid 1px #f0f0f0;
+background: #f9f9f9;
+height: 30px;
+margin: 10px 0;
+position: relative;
+}
+
+#submitMapProgress div
+{
+background: #ffffcc;
+height: 30px;
+position: absolute;
+}
+
+#submitMapProgress span
+{
+position: absolute;
+display: block;
+width: 100%;
+text-align: center;
+margin: 5px 0 0 0;
+font-weight: bold;
+font-size: 16px;
+color: #999;
+}
+
+#submitMapProgress a
+{
+position: absolute;
+right: 5px;
+bottom: 2px;
+}
+
+#submitMapDimer
+{
+background: url(http://www.map-factory.org/media/image/layout/background.gif);
+position: absolute;
+width: 100%;
+height: 100%;
+margin: -5px -10px;
+z-index: 100;
+}
+
+#submitMapComplete
+{
+margin: 10px 0 0 0;
+border: dashed 1px #66f066;
+background: #f0fff0;
+padding: 0 10px;
+display: none;
+}
+
+#submitMapComplete p
+{
+text-align: center !important;
+font-weight: bold;
+color: #009900;
+}
+
+#submit_ie6warning
+{
+margin: 30px;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+color: #ff6666;
+}
+
+
+/* ================== ADMIN */
+
+#adminCommentList li.comment
+{
+margin: 10px 0;
+}
+
+#adminCommentList li.comment.repply
+{
+background: #f0f0f0;
+}
+
+#adminCommentList li.comment span
+{
+color: #999;
+}
+
+
+/* ================== WARNING IE6 */
+
+#ie6warning
+{
+background: #ffffcc;
+padding: 10px;
+margin: 0 0 10px 0;
+}
+
+#ie6warning img
+{
+float: left;
+margin: 0 0 0 20px;
+}
+
+#ie6warning p
+{
+margin: 10px 0 0 140px;
+font-weight: bold;
+color: #666;
+font-size: 14px;
+position: relative;
+}
+
+#ie6warning p a
+{
+font-size: 18px;
+}
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- LOOP item -->
+    <item>
+        <id>{item.id}</id>
+        <file>{item.file}</file>
+        <name>{item.name}</name>
+    </item>
+    <!-- END item -->
+</root>

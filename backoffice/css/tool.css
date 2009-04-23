@@ -1,0 +1,259 @@
+#tool {
+clear: both;
+}
+
+#tool form {
+width: 480px;
+margin: 5px 0 0 0;
+padding: 10px;
+background: #fffeee;
+border: solid 1px #f0f0f0;
+}
+
+
+/************* SIMPLE DATE */
+
+#tool .simpleDate {
+margin: 0;
+height: 22px;
+border: none;
+padding: 5px 10px;
+}
+
+#tool .simpleDate label {
+displau: block;
+float: left;
+text-align: right;
+width: 82px;
+margin: 0 10px 0 0;
+padding: 3px 0 0 0;
+}
+
+#tool .simpleDate select {
+margin: 0 5px 0 0;
+float: left;
+}
+
+#tool .simpleDate span {
+displau: block;
+float: left;
+margin: 0 4px;
+padding: 3px 0 0 0;
+font-style: italic;
+}
+
+#tool .simpleDate select[name='day'],
+#tool .simpleDate select[name='hour'],
+#tool .simpleDate select[name='minute'] {
+width: 45px;
+}
+
+#tool .simpleDate select[name='month'] {
+width: 90px;
+}
+
+#tool .simpleDate select[name='year'] {
+width: 58px;
+}
+
+
+/************* SIMPLE FILE */
+
+#tool .simpleFile label {
+display: block;
+float: left;
+text-align: right;
+width: 80px;
+margin: 0 10px 0 0;
+padding: 3px 0 0 0;
+}
+
+
+#tool .simpleFile object {
+margin: 0 0 -5px 0;
+}
+
+#tool .simpleFile span {
+margin: 0 0 0 8px;
+font-style: italic;
+}
+
+#tool .simpleFile span.button {
+cursor: pointer;
+}
+
+#tool .simpleFile .startButton {
+float: right;
+}
+
+#tool .simpleFile ul {
+margin: 5px 0 -5px 92px;
+list-style: none;
+}
+
+#tool .simpleFile ul a {
+text-decoration: none;
+color: #000;
+}
+
+#tool .simpleFile ul li {
+border-top: solid 1px #f0f0f0;
+padding: 2px 0;
+}
+
+#tool .simpleFile ul li:first-child {
+border: none;
+}
+
+#tool .simpleFile ul a:hover {
+text-decoration: underline;
+}
+
+#tool .simpleFile ul span {
+float: right;
+color: #999;
+cursor: pointer;
+font-style: normal;
+}
+
+#tool .simpleFile ul span.hover {
+text-decoration: underline;
+}
+
+
+/************* SIMPLE IMAGE */
+
+#tool .simpleImage label {
+display: block;
+float: left;
+text-align: right;
+width: 80px;
+margin: 0 10px 0 0;
+padding: 3px 0 0 0;
+}
+
+#tool .simpleImage object {
+margin: 0 0 -5px 0;
+}
+
+#tool .simpleImage span {
+margin: 0 0 0 8px;
+font-style: italic;
+}
+
+#tool .simpleImage span.button {
+cursor: pointer;
+}
+
+#tool .simpleImage .startButton {
+float: right;
+}
+
+#tool .simpleImage ul {
+margin: 5px 0 -5px 92px;
+list-style: none;
+}
+
+#tool .simpleImage ul a {
+text-decoration: none;
+color: #000;
+}
+
+#tool .simpleImage ul li {
+border-top: solid 1px #f0f0f0;
+padding: 2px 0;
+}
+
+#tool .simpleImage ul li.selected {
+background: #fffccc;
+}
+
+#tool .simpleImage ul li:first-child {
+border: none;
+}
+
+#tool .simpleImage ul a:hover {
+text-decoration: underline;
+}
+
+#tool .simpleImage ul span {
+float: right;
+color: #999;
+cursor: pointer;
+font-style: normal;
+}
+
+#tool .simpleImage ul span.hover {
+text-decoration: underline;
+}
+
+#tool .simpleImage ul span.selectLink {
+cursor: pointer;
+width: 8px;
+height: 12px;
+float: right;
+display: block;
+background: #ddd;
+}
+
+#tool .simpleImage ul span.selectLink.selected {
+background: #99ff99;
+}
+
+#tool .simpleImage img {
+float: left;
+margin: 0 12px 0 -92px;
+}
+
+
+/************* AUTO COMPLETION */
+
+#tool .autoCompletion {
+margin: 0;
+border: none;
+padding: 5px 10px;
+}
+
+#tool .autoCompletion label {
+display: block;
+float: left;
+text-align: right;
+width: 80px;
+margin: 0 10px 0 0;
+padding: 1px 0 0 0;
+}
+
+#tool .autoCompletion input,
+#tool .autoCompletion ul {
+width: 280px;
+}
+
+#tool .autoCompletion ul {
+position: absolute;
+margin: 0 0 0 90px;
+background: #f9f9f9;
+list-style: none;
+border: solid 1px #ccc;
+border-top: none;
+}
+
+#tool .autoCompletion ul li {
+padding: 1px 0;
+cursor: pointer;
+}
+
+#tool .autoCompletion ul li:hover,
+#tool .autoCompletion ul li.selected {
+background: #fffccc;
+}
+
+#tool .autoCompletion input {
+border: solid 1px #ccc;
+}
+
+#tool .autoCompletion span {
+margin: 0 0 0 10px;
+font-style: italic;
+color: #999;
+}
+

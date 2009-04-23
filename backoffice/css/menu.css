@@ -1,0 +1,17 @@
+#menu li
+{
+    display: block;
+    float: left;
+    cursor: pointer;
+    margin: 3px 0 0 8px;
+}
+
+#menu li.hover
+{
+    text-decoration: underline;
+}
+
+#menu li.selected
+{
+    font-weight: bold;
+}

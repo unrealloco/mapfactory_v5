@@ -1,0 +1,82 @@
+#edit {
+float: left;
+width: 500px;
+background: #fffeee;
+border: solid 1px #f0f0f0;
+margin: 0 0 5px 0;
+}
+
+#edit h2 {
+background: #f0f0f0;
+padding: 2px 0;
+text-align: center;
+}
+
+#edit div.toolbar {
+background: #fff;
+height: 22px;
+}
+
+#edit div.toolbar span.button {
+float: right;
+margin: 0 8px 0 0;
+padding: 1px 8px 2px 8px;
+color: #999;
+background: #f0f0f0;
+border: solid 1px #f0f0f0;
+border-width: 0 1px 1px 1px;
+cursor: pointer;
+}
+
+#edit div.toolbar span.button.hover {
+color: #000;
+background: #fff;
+}
+
+#edit div.line {
+margin: 5px 0;
+}
+
+#edit div.line label {
+display: block;
+text-align: right;
+float: left;
+width: 94px;
+padding: 0 8px 0 0;
+}
+
+#edit div.line div.radio_container {
+margin: 8px 0 0 0;
+}
+
+#edit div.line div.radio_container label {
+width: auto;
+margin: 0 0 0 102px;
+float: none;
+text-align: left;
+}
+
+#edit div.line div.radio_container label input {
+margin: 0 4px 0 0;
+display: inline;
+border: solid 1px red !important;
+}
+
+#edit input {
+width: 390px;
+border: solid 1px #ccc;
+}
+
+#edit textarea {
+width: 390px;
+border: solid 1px #ccc;
+height: 80px;
+}
+
+#edit iframe,
+#edit textarea.WidgTextarea {
+width: 390px;
+border: solid 1px #ccc;
+height: 200px;
+background: #fff;
+}

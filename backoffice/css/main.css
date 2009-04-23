@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    font-size: 12px;
+}
+
+body {
+    background: url(/backoffice/img/background.gif);
+}
+
+#header
+{
+    background: #fff;
+    height: 20px;
+    border-bottom: solid 1px #ccc;
+}
+
+#colLeft
+{
+    border-right: solid 1px #ddd;
+    background: #f0f0f0;
+    width: 220px;
+    float: left;
+}
+
+#colRight {
+float: left;
+margin: 10px;
+width: 500px;
+}

@@ -1,0 +1,60 @@
+#list 
+{
+    list-style: none;
+    margin: 8px;
+}
+
+#list li
+{
+    background: #fff;
+    margin: 0 0 2px 0;
+    width: 200px;
+    overflow: hidden;
+}
+
+#list li.hover
+{
+    background: #fffeee;
+}
+
+#list li.selected
+{
+    background: #fffccc;
+}
+
+#list li span
+{
+    display: block;
+    height: 14px;
+    margin: 0 0 0 10px;
+padding: 2px;
+    cursor: pointer;
+}
+
+#list li .status
+{
+    background: #ff9999;
+    float: left;
+    width: 8px;
+    height: 14px;
+    margin: 2px 4px 0 2px;
+cursor: pointer;
+}
+
+#list li .status.on
+{
+    background: #99ff99;
+}
+
+#list .info
+{
+    background: none;
+padding: 0 0 0 14px;
+color: #999;
+}
+
+#list_search_input {
+border: inset 1px #ccc;
+margin: 8px 0 0 8px;
+width: 198px;
+}

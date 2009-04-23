@@ -1,0 +1,21 @@
+#pagination
+{
+    padding: 0 0 0 8px;
+    background: #ddd;
+}
+
+#pagination span
+{
+    cursor: pointer;
+}
+
+#pagination span.hover
+{
+    color: #ff6600;
+}
+
+#pagination span.unactive
+{
+    cursor: default;
+    color: #aaa;
+}

@@ -1,0 +1,109 @@
+/******************************************************************************
+** STRUCTURE OF DYNAMICALLY CREATED ELEMENTS
+*******************************************************************************
+**
+** <div id="ORIGINAL_IDWidgContainer" class="widgContainer">
+**     <ul id="ORIGINAL_IDWidgToolbar" class="widgToolbar">
+**         <li id="BUTTON_ID" class="widgEditButton">
+**             <a></a>
+**         </li>
+**         <li class="widgEditSelect">
+**             <select>
+**             </select>
+**         </li>
+**     </ul>
+**     <iframe id="ORIGINAL_IDWidgIframe" class="widgIframe">
+**     </iframe>
+**     <textarea id="ORIGINAL_IDWidgTextarea" class="widgEditor">
+**     </textarea>
+** </div>
+*/
+
+/* TOOLBAR BUTTONS */
+
+.widgToolbar a
+{
+	display: block;
+	width: 22px;
+	height: 22px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	text-indent: -1000em;
+	text-decoration: none;
+}
+
+.widgToolbar a:hover
+{
+	background-position: 0 -22px;
+}
+
+.widgToolbar a:active
+{
+	background-position: 0 -44px;
+}
+
+.widgToolbar li.widgEditButton
+{
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+.widgButtonBold
+{
+	background-image: url(/backoffice/img/widgeditor_button_bold.gif);
+}
+
+.widgButtonHTML
+{
+	background-image: url(/backoffice/img/widgeditor_button_html.gif);
+}
+
+.widgSource .widgButtonHTML
+{
+	background-image: url(/backoffice/img/widgeditor_button_html.gif);
+}
+
+.widgButtonLink
+{
+	background-image: url(/backoffice/img/widgeditor_button_link.gif);
+}
+
+.widgButtonUnordered
+{
+	background-image: url(/backoffice/img/widgeditor_button_unordered.gif);
+}
+
+.widgSource a
+{
+	background-image: url(/backoffice/img/widgeditor_button_empty.gif);
+	cursor: default;
+}
+
+.widgSource li.on a, .widgSource li.on a:hover
+{
+	background-position: 0 0;
+}
+
+.widgSource .widgButtonHTML:hover
+{
+	cursor: pointer;
+}
+
+.widgToolbar
+{
+	list-style: none;
+	width: 22px;
+	height: 72px;
+	margin: 20px 0 0 78px;
+    position: absolute;
+}
+
+.widgToolbar li
+{
+	display: inline;
+	float: left;
+	width: 22px;
+	height: 22px;
+    margin-top: 2px;
+}
+
