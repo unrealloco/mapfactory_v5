@@ -4,11 +4,12 @@
 
 
     /////////////////////////
-	// PAGE INFOS
-	/////////////////////////
-	
-	$tpl->assignVar (array (
-		'PAGE_TITLE'          => 'About Map Factory',
-		'PAGE_DESCRIPTION'    => 'Download custom Maps for your favorit FPS (First Person Shooters) games, and submit your own maps.',
-		'PAGE_KEYWORDS'       => implode(', ', $keywordList)
-	));
+    // PAGE INFOS
+    /////////////////////////
+
+    $tpl->assignVar (array (
+            'PAGE_TITLE'          => 'About Map Factory',
+            'PAGE_DESCRIPTION'    => 'Download custom Maps for your favorit FPS (First Person Shooters) games, and submit your own maps.',
+            'PAGE_KEYWORDS'       => implode(', ', $keywordList)
+    ));
+

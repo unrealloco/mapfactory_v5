@@ -2,11 +2,11 @@
 
     require '../inc/conf.php';
 
-	$rs = $db->select('SELECT id FROM map_activity WHERE map_id=' . $_POST['mapId'] . ' AND date=' . (time() - (time() % 86400)) . ' AND type="vote"');
+    $rs = $db->select('SELECT id FROM map_activity WHERE map_id=' . $_POST['mapId'] . ' AND date=' . (time() - (time() % 86400)) . ' AND type="vote"');
 
-	if ($rs['total'] == 0)
-	{
-	   $db->insert('INSERT INTO map_activity SET map_id=' . $_POST['mapId'] . ', date=' . (time() - (time() % 86400)) . ', total=1, type="vote"');
+    if ($rs['total'] == 0)
+    {
+       $db->insert('INSERT INTO map_activity SET map_id=' . $_POST['mapId'] . ', date=' . (time() - (time() % 86400)) . ', total=1, type="vote"');
     }
     else
     {
@@ -44,3 +44,4 @@
     }
 
     $db->update('UPDATE map SET ratting = ' . (($avgHint == 0) ? 0 : ($avgPoint / $avgHint)) . ' WHERE id=' . $_POST['mapId']);
+

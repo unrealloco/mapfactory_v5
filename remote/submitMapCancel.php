@@ -45,32 +45,38 @@
             $dir = ROOT_DIR . 'media/image/screenshot/';
 
             $image = $dir.'original/' . $id . '.jpg';
-        	if (file_exists($image)){
-        		unlink($image);
-        	}
+            if (file_exists($image))
+            {
+                unlink($image);
+            }
 
             $image = $dir.'original/' . $id . '.png';
-        	if (file_exists($image)){
-        		unlink($image);
-        	}
+            if (file_exists($image))
+            {
+                unlink($image);
+            }
 
             $image = $dir.'original/' . $id . '.gif';
-        	if (file_exists($image)){
-        		unlink($image);
-        	}
-    
-        	foreach ($IMAGE_SIZE as $size){
-        	    $size = explode('x', $size);
-        		$dest = $dir.$size[0].((isset ($size[1]))?'x'.$size[1]:'').'/'.$id.'.jpg';
-        		
-        		if (file_exists ($dest)){
-        			unlink($dest);
-        		}
-        	}
-        
-        	$preview = ROOT_DIR.'backoffice/img/preview/map_image_'.$id.'.jpg';
-        	if (file_exists($preview)){
-        		unlink($preview);
-        	}
+            if (file_exists($image))
+            {
+                unlink($image);
+            }
+
+            foreach ($IMAGE_SIZE as $size){
+                $size = explode('x', $size);
+                $dest = $dir.$size[0].((isset ($size[1]))?'x'.$size[1]:'').'/'.$id.'.jpg';
+
+                if (file_exists ($dest))
+                {
+                    unlink($dest);
+                }
+            }
+
+            $preview = ROOT_DIR.'backoffice/img/preview/map_image_'.$id.'.jpg';
+            if (file_exists($preview))
+            {
+                unlink($preview);
+            }
         }
     }
+

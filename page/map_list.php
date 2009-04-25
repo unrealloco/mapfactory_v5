@@ -4,8 +4,8 @@
     include('bloc/recent_activity.php');
 
     /////////////////////////
-	// MAP LIST
-	/////////////////////////
+    // MAP LIST
+    /////////////////////////
 
     $tpl->setCacheKey
     (
@@ -34,54 +34,53 @@
             a.guid                  AS author_guid,
             COUNT(DISTINCT c.id)    AS comment
 
-    		FROM              map             AS m
-    		JOIN              game            AS g    ON m.game_id = g.id
-    		JOIN              gametype        AS t    ON m.gametype_id = t.id
-    		JOIN              author          AS a    ON m.author_id = a.id
-    		LEFT OUTER JOIN   map_comment     AS c    ON c.map_id=m.id AND c.status=1
+            FROM              map             AS m
+            JOIN              game            AS g    ON m.game_id = g.id
+            JOIN              gametype        AS t    ON m.gametype_id = t.id
+            JOIN              author          AS a    ON m.author_id = a.id
+            LEFT OUTER JOIN   map_comment     AS c    ON c.map_id=m.id AND c.status=1
 
-    		WHERE     m.status = 1
-    		' . ((isset($_GET['game']) && is_string($_GET['game'])) ? 'AND g.guid="' . $_GET['game'] . '"' : '') . '
-    		' . ((isset($_GET['gametype']) && is_string($_GET['gametype'])) ? 'AND t.guid="' . $_GET['gametype'] . '"' : '') . '
-    		' . ((isOk ($_GET['q'])) ? 'AND CONCAT_WS(" ", m.title, g.name, t.name, a.name, m.description) LIKE(\'' . getLikeList ($_GET['q']) . '\')' : '' ) . '
-    		AND       m.date < '.time ().'
-    		AND       g.status = 1
-    		AND       t.status = 1
-    		AND       a.status = 1
+            WHERE     m.status = 1
+            ' . ((isset($_GET['game']) && is_string($_GET['game'])) ? 'AND g.guid="' . $_GET['game'] . '"' : '') . '
+            ' . ((isset($_GET['gametype']) && is_string($_GET['gametype'])) ? 'AND t.guid="' . $_GET['gametype'] . '"' : '') . '
+            ' . ((isOk ($_GET['q'])) ? 'AND CONCAT_WS(" ", m.title, g.name, t.name, a.name, m.description) LIKE(\'' . getLikeList ($_GET['q']) . '\')' : '' ) . '
+            AND       m.date < '.time ().'
+            AND       g.status = 1
+            AND       t.status = 1
+            AND       a.status = 1
 
-    		GROUP BY m.id
-    		ORDER BY m.date DESC',
-            (($_GET['p'] > 0) ? $_GET['p'] - 1 : $_GET['p']) * MAP_PER_PAGE,
-        	MAP_PER_PAGE
+            GROUP BY m.id
+            ORDER BY m.date DESC',
+            (($_GET['p'] > 0) ? $_GET['p'] - 1 : $_GET['p']) * MAP_PER_PAGE, MAP_PER_PAGE
     	);
 
         if ($rs['total'] != 0)
         {
-        	foreach ($rs['result'] as $key => $item)
-        	{
-        		$tpl->assignLoopVar('map', array
-        		(
-        			'id'             => $item['id'],
-        			'title'          => $item['title'],
-        			'game'           => $item['game'],
-        			'gametype'       => $item['gametype'],
-        			'author'         => $item['author'],
+            foreach ($rs['result'] as $key => $item)
+            {
+                $tpl->assignLoopVar('map', array
+                (
+                    'id'             => $item['id'],
+                    'title'          => $item['title'],
+                    'game'           => $item['game'],
+                    'gametype'       => $item['gametype'],
+                    'author'         => $item['author'],
                     'author_id'      => $item['author_id'],
                     'image'          => $item['image'],
-        			'comment'        => $item['comment'],
-        			'download'       => $item['download'],
-        			'comment_s'      => ($item['comment'] > 1)?'s':'',
-        			'download_s'     => ($item['download'] > 1)?'s':'',
-        			'ratting'        => round (($item['ratting'] / 5) * 80),
+                    'comment'        => $item['comment'],
+                    'download'       => $item['download'],
+                    'comment_s'      => ($item['comment'] > 1)?'s':'',
+                    'download_s'     => ($item['download'] > 1)?'s':'',
+                    'ratting'        => round (($item['ratting'] / 5) * 80),
 
-        			'map_guid'       => $item['guid'],
-        			'game_guid'      => $item['game_guid'],
-        			'gametype_guid'  => $item['gametype_guid'],
-        			'author_guid'    => $item['author_guid'],
+                    'map_guid'       => $item['guid'],
+                    'game_guid'      => $item['game_guid'],
+                    'gametype_guid'  => $item['gametype_guid'],
+                    'author_guid'    => $item['author_guid'],
 
-        			'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
-        		));
-        	}
+                    'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
+                ));
+            }
         }
         else
         {
@@ -105,15 +104,15 @@
             if (isOk($_GET['q']))
             {
                 $tpl->assignVar(array
-        		(
-        		    'page_title'    => 'Oups ! no map found ...',
+                (
+                    'page_title'    => 'Oups ! no map found ...',
                     'search_query'  => utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q'])))),
                     'search_path'   => str_replace(array('/', '-'), array(' >> ', ' '), preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link))
                 ));
 
                 if (isOk($_GET['game']))
                 {
-                        $tpl->assignSection('noResult_tip1');
+                    $tpl->assignSection('noResult_tip1');
                 }
             }
             else
@@ -178,47 +177,47 @@
 
     	for ($p = 0; $p < $pageTotal; $p ++)
     	{
-    		if ($p > 2 && $p < $_GET['p'] - 4)
-    		{
-    			$p = $_GET['p'] - 4;
-    			$tpl->assignSection('pagination_space' . $n);
-    			$n ++;
-    		}
+            if ($p > 2 && $p < $_GET['p'] - 4)
+            {
+                $p = $_GET['p'] - 4;
+                $tpl->assignSection('pagination_space' . $n);
+                $n ++;
+            }
 
-    		if ($p < $pageTotal - 3 && $p > $_GET['p'] + 4)
-    		{
-    			$p = $pageTotal - 3;
-    			$tpl->assignSection('pagination_space' . $n);
-    			$n ++;
-    		}
+            if ($p < $pageTotal - 3 && $p > $_GET['p'] + 4)
+            {
+                $p = $pageTotal - 3;
+                $tpl->assignSection('pagination_space' . $n);
+                $n ++;
+            }
 
-    		$tpl->assignLoopVar('pagination_' . $n, array
-    		(
-    			'n'      => $p + 1,
-    			'link'   => $link . (($p == 0) ? '' : $p + 1),
-    			'class'  => ($p == $_GET['p']) ? 'on' : 'off'
-    		));
+            $tpl->assignLoopVar('pagination_' . $n, array
+            (
+                'n'      => $p + 1,
+                'link'   => $link . (($p == 0) ? '' : $p + 1),
+                'class'  => ($p == $_GET['p']) ? 'on' : 'off'
+            ));
     	}
 
     	if ($pageTotal > 1)
     	{
-                $tpl->assignSection('pagination');
+            $tpl->assignSection('pagination');
 
-    		$tpl->assignVar(array
-    		(
-    			'pagination_next' => $link . ($_GET['p'] + 2),
-    			'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p'])
-    		));
+            $tpl->assignVar(array
+            (
+                'pagination_next' => $link . ($_GET['p'] + 2),
+                'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p'])
+            ));
 
-    		if ($_GET['p'] > 0)
-    		{
-    			$tpl->assignSection('pagination_prev');
-    		}
+            if ($_GET['p'] > 0)
+            {
+                $tpl->assignSection('pagination_prev');
+            }
 
-    		if ($_GET['p'] < $pageTotal - 1)
-    		{
-    			$tpl->assignSection('pagination_next');
-    		}
+            if ($_GET['p'] < $pageTotal - 1)
+            {
+                $tpl->assignSection('pagination_next');
+            }
     	}
 
 
@@ -232,16 +231,16 @@
 
     	$tpl->assignVar(array
     	(
-    		'result_from'     => number_format(($_GET['p'] * MAP_PER_PAGE) + 1, 0, '', ','),
-    		'result_to'       => number_format(($to > $rs['total']) ? $rs['total'] : $to, 0, '', ','),
-    		'result_total'    => number_format($rs['total'], 0, '', ',')
+            'result_from'     => number_format(($_GET['p'] * MAP_PER_PAGE) + 1, 0, '', ','),
+            'result_to'       => number_format(($to > $rs['total']) ? $rs['total'] : $to, 0, '', ','),
+            'result_total'    => number_format($rs['total'], 0, '', ',')
     	));
     }
 
 
     /////////////////////////
-	// PAGE INFOS
-	/////////////////////////
+    // PAGE INFOS
+    /////////////////////////
 
     $pageKeyword = implode(', ', $keywordList);
 
@@ -288,9 +287,10 @@
         $inPageTitle = $pageTitle;
     }
 
-	$tpl->assignVar (array (
-		'page_title'          => $inPageTitle,
-		'PAGE_TITLE'          => $pageTitle,
-		'PAGE_DESCRIPTION'    => $pageDescriptiom,
-		'PAGE_KEYWORDS'       => $pageKeyword
-	));
+    $tpl->assignVar (array (
+            'page_title'          => $inPageTitle,
+            'PAGE_TITLE'          => $pageTitle,
+            'PAGE_DESCRIPTION'    => $pageDescriptiom,
+            'PAGE_KEYWORDS'       => $pageKeyword
+    ));
+

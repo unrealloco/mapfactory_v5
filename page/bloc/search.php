@@ -1,8 +1,8 @@
 <?php
 
     /////////////////////////
-	// SEARCH BAR
-	/////////////////////////
+    // SEARCH BAR
+    /////////////////////////
 
     $game = isset($_GET['game']) ? $_GET['game'] : '';
 
@@ -56,8 +56,8 @@
 
 
     /////////////////////////
-	// KEYWORDS
-	/////////////////////////
+    // KEYWORDS
+    /////////////////////////
 
     $rs = $db->select('SELECT name FROM game WHERE status=1 UNION SELECT name FROM gametype WHERE status=1');
 
@@ -67,3 +67,4 @@
     {
         $keywordList[] = $word['name'];
     }
+

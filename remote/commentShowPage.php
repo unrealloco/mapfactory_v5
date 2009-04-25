@@ -6,3 +6,4 @@
     $tpl->assignTemplate('../template/bloc/commentList.tpl');
 
     $tpl->display();
+

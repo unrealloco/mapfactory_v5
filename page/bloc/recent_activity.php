@@ -1,8 +1,8 @@
 <?php
 
     /////////////////////////
-	// RECENT ACTIVITY
-	/////////////////////////
+    // RECENT ACTIVITY
+    /////////////////////////
 
     $tpl->setCacheKey('cached/latest_activity.tpl', 'latest_activity');
 
@@ -20,18 +20,18 @@
             t.name                  AS gametype,
             t.guid                  AS gametype_guid
 
-    		FROM              map_activity        AS a
-    		JOIN              map                 AS m    ON a.map_id = m.id
-    		JOIN              game                AS g    ON m.game_id = g.id
-    		JOIN              gametype            AS t    ON m.gametype_id = t.id
+            FROM              map_activity        AS a
+            JOIN              map                 AS m    ON a.map_id = m.id
+            JOIN              game                AS g    ON m.game_id = g.id
+            JOIN              gametype            AS t    ON m.gametype_id = t.id
 
-    		WHERE     a.date BETWEEN ' . (time() - ((3600 * 24) * 3)) . ' AND ' . time() . ' 
-    		AND       m.status = 1
-    		AND       g.status = 1
-    		AND       t.status = 1
+            WHERE     a.date BETWEEN ' . (time() - ((3600 * 24) * 3)) . ' AND ' . time() . '
+            AND       m.status = 1
+            AND       g.status = 1
+            AND       t.status = 1
 
             GROUP BY a.type, map_id
-    		ORDER BY a.total, a.type DESC'
+            ORDER BY a.total, a.type DESC'
     	);
 
         $total = 0;
@@ -75,25 +75,25 @@
 
             $tpl->assignLoopVar('activity', array
     		(
-    			'id'             => $item['id'],
-    			'title'          => $item['title'],
-    			'game'           => $item['game'],
-    			'gametype'       => $item['gametype'],
-                'image'          => $item['image'],
-    
-    			'map_guid'       => $item['guid'],
-    			'game_guid'      => $item['game_guid'],
-    			'gametype_guid'  => $item['gametype_guid']
+                    'id'             => $item['id'],
+                    'title'          => $item['title'],
+                    'game'           => $item['game'],
+                    'gametype'       => $item['gametype'],
+                    'image'          => $item['image'],
+
+                    'map_guid'       => $item['guid'],
+                    'game_guid'      => $item['game_guid'],
+                    'gametype_guid'  => $item['gametype_guid']
     		));
 
             foreach ($activityList[$id] as $a)
             {
                 $tpl->assignLoopVar('activity.type', array
-        		(
+                (
                     'class'  => strtolower($a['type']),
-        			'name'   => $a['type'],
-        			'n'      => $a['total']
-        		));
+                    'name'   => $a['type'],
+                    'n'      => $a['total']
+                ));
             }
 
             $i ++;
@@ -103,3 +103,4 @@
             }
         }
     }
+

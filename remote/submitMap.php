@@ -94,3 +94,4 @@
     $data['map_id'] = $id;
 
     echo json_encode($data);
+

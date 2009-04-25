@@ -5,10 +5,10 @@
 
 
     /////////////////////////
-	// MAP
-	/////////////////////////
+    // MAP
+    /////////////////////////
 
-	$rs = $db->select('SELECT
+    $rs = $db->select('SELECT
         m.id                    AS id,
         m.title                 AS title,
         m.guid                  AS guid,
@@ -26,22 +26,22 @@
         f.id                    AS file_id,
         COUNT(DISTINCT c.id)    AS comment
 
-		FROM              map             AS m
-		JOIN              game            AS g    ON m.game_id = g.id
-		JOIN              gametype        AS t    ON m.gametype_id = t.id
-		JOIN              author          AS a    ON m.author_id = a.id
-		JOIN              map_file        AS f    ON m.id = f.parent_id
-		LEFT OUTER JOIN   map_comment     AS c    ON c.map_id=m.id AND c.status=1
+        FROM              map             AS m
+        JOIN              game            AS g    ON m.game_id = g.id
+        JOIN              gametype        AS t    ON m.gametype_id = t.id
+        JOIN              author          AS a    ON m.author_id = a.id
+        JOIN              map_file        AS f    ON m.id = f.parent_id
+        LEFT OUTER JOIN   map_comment     AS c    ON c.map_id=m.id AND c.status=1
 
-		WHERE     m.id = ' . $_GET['map'] . '
-		AND       m.date < '.time ().'
-		AND       m.status = 1
-		AND       g.status = 1
-		AND       t.status = 1
-		AND       a.status = 1
+        WHERE     m.id = ' . $_GET['map'] . '
+        AND       m.date < '.time ().'
+        AND       m.status = 1
+        AND       g.status = 1
+        AND       t.status = 1
+        AND       a.status = 1
 
         GROUP BY m.id'
-	);
+    );
 
     if (isOK($rs['result'][0]['id']))
     {
@@ -52,13 +52,13 @@
                 'page_title'    => $item['game'] . ' - ' . $item['title']
             ));
 
-    		$tpl->assignVar(array
-    		(
-    			'id'             => $item['id'],
-    			'title'          => $item['title'],
-    			'game'           => $item['game'],
-    			'gametype'       => $item['gametype'],
-    			'author'         => $item['author'],
+            $tpl->assignVar(array
+            (
+                'id'             => $item['id'],
+                'title'          => $item['title'],
+                'game'           => $item['game'],
+                'gametype'       => $item['gametype'],
+                'author'         => $item['author'],
                 'author_id'      => $item['author_id'],
                 'image'          => $item['image'],
                 'description'    => $item['description'],
@@ -66,11 +66,11 @@
                 'download_s'     => ($item['download'] > 1) ? 's' : '',
                 'comment'        => $item['comment'],
 
-    			'map_guid'       => $item['guid'],
-    			'game_guid'      => $item['game_guid'],
-    			'gametype_guid'  => $item['gametype_guid'],
-    			'author_guid'    => $item['author_guid']
-    		));
+                'map_guid'       => $item['guid'],
+                'game_guid'      => $item['game_guid'],
+                'gametype_guid'  => $item['gametype_guid'],
+                'author_guid'    => $item['author_guid']
+            ));
 
             if (!empty($item['description']))
             {
@@ -91,9 +91,9 @@
         $file = ROOT_DIR.'media/map/' . $fileId . '.zip';
 
         if (file_exists($file))
-		{
+        {
             $tpl->assignVar('size', number_format(round(filesize($file) / 1024 / 1024)));
-		}
+        }
     }
     else
     {
@@ -182,8 +182,8 @@
 
 
     /////////////////////////
-	// MORE MAP FROM
-	/////////////////////////
+    // MORE MAP FROM
+    /////////////////////////
 
     $tpl->setCacheKey('cached/more_map_from.tpl', 'more_map_from_' . $authorId);
 
@@ -198,36 +198,36 @@
             t.name                  AS gametype,
             t.guid                  AS gametype_guid
 
-    		FROM              map             AS m
-    		JOIN              game            AS g    ON m.game_id = g.id
-    		JOIN              gametype        AS t    ON m.gametype_id = t.id
+            FROM              map             AS m
+            JOIN              game            AS g    ON m.game_id = g.id
+            JOIN              gametype        AS t    ON m.gametype_id = t.id
 
-    		WHERE     m.status = 1
-    		AND       m.author_id = ' . $authorId . '
-    		AND       m.date < '.time ().'
-    		AND       g.status = 1
-    		AND       t.status = 1
+            WHERE     m.status = 1
+            AND       m.author_id = ' . $authorId . '
+            AND       m.date < '.time ().'
+            AND       g.status = 1
+            AND       t.status = 1
 
-    		GROUP BY m.id
-    		ORDER BY m.date DESC'
+            GROUP BY m.id
+            ORDER BY m.date DESC'
     	);
 
     	foreach ($rs['result'] as $key => $item)
     	{
-    		$tpl->assignLoopVar('moreMapFrom', array
-    		(
-    			'id'             => $item['id'],
-    			'title'          => $item['title'],
-    			'game'           => $item['game'],
-    			'gametype'       => $item['gametype'],
+            $tpl->assignLoopVar('moreMapFrom', array
+            (
+                'id'             => $item['id'],
+                'title'          => $item['title'],
+                'game'           => $item['game'],
+                'gametype'       => $item['gametype'],
                 'image'          => $item['image'],
 
-    			'map_guid'       => makeGUID($item['title']),
-    			'game_guid'      => $item['game_guid'],
-    			'gametype_guid'  => $item['gametype_guid'],
+                'map_guid'       => makeGUID($item['title']),
+                'game_guid'      => $item['game_guid'],
+                'gametype_guid'  => $item['gametype_guid'],
 
                 'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
-    		));
+            ));
         }
     }
 
@@ -244,8 +244,8 @@
     /////////////////////////
 
     $tpl->assignVar (array (
-            'PAGE_TITLE'          => $gameName.' - '.$mapTitle,
-            'PAGE_DESCRIPTION'    => $mapTitle . ', a '.$gametypeName.' map for '.$gameName.', realised by '.$authorName,
-            'PAGE_KEYWORDS'       => $mapTitle.', '.$gameName.', '.$gametypeName.', '.$authorName.', '.implode(', ', $keywordList)
+        'PAGE_TITLE'          => $gameName.' - '.$mapTitle,
+        'PAGE_DESCRIPTION'    => $mapTitle . ', a '.$gametypeName.' map for '.$gameName.', realised by '.$authorName,
+        'PAGE_KEYWORDS'       => $mapTitle.', '.$gameName.', '.$gametypeName.', '.$authorName.', '.implode(', ', $keywordList)
     ));
 

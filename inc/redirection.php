@@ -32,8 +32,8 @@
             exit();
         }
     }
-    
-    // REDIRECT OLD IMAGES FROM V4  
+
+    // REDIRECT OLD IMAGES FROM V4
     else if (isset($_GET['image']))
     {
         $rs = $db->select('SELECT id FROM map_image WHERE parent_id=' . $_GET['map']);
@@ -59,3 +59,4 @@
 
         exit();
     }
+

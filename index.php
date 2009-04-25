@@ -1,6 +1,6 @@
 <?php
 
-	include 'inc/conf.php';
+    include 'inc/conf.php';
 
     if (file_exists('page/' . $page . '.php'))
     {
@@ -30,11 +30,11 @@
         $tpl->assignSection('notIE6');
     }
 
-	$tpl->assignTemplate('template/bloc/header.tpl');
-	$tpl->assignTemplate('template/'.$page.'.tpl');
-	$tpl->assignTemplate('template/bloc/footer.tpl');
+    $tpl->assignTemplate('template/bloc/header.tpl');
+    $tpl->assignTemplate('template/'.$page.'.tpl');
+    $tpl->assignTemplate('template/bloc/footer.tpl');
 
-	$tpl->display();
+    $tpl->display();
 
 echo '<!-- ';
 echo 'SQL : '.number_format($db->execTime, 3, ',', ' ').' sec ('.$db->nbReq.' req) | ';
