@@ -919,7 +919,8 @@ width: 150px;
 font-weight: bold;
 }
 
-#submitMap input.field
+#submitMap input.field,
+#submitMap select
 {
 width: 150px;
 }

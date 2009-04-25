@@ -12,34 +12,38 @@
     }
 
 
-    // RETRIEVE GAME ID
+//    // RETRIEVE GAME ID
+//
+//    $rs = $db->select('SELECT id FROM game WHERE name="' . $_POST['game'] . '"');
+//
+//    if ($rs['total'] != 0)
+//    {
+//        $game_id = $rs['result'][0]['id'];
+//    }
+//    else
+//    {
+//        $game_id = $db->insert('INSERT INTO game SET name="' . $_POST['game'] . '", guid="' . makeGuid($_POST['game']) . '"');
+//        $data['game_id'] = $game_id;
+//    }
+//
+//
+//    // RETRIEVE GAMETYPE ID
+//
+//    $rs = $db->select('SELECT id FROM gametype WHERE name="' . $_POST['gametype'] . '"');
+//
+//    if ($rs['total'] != 0)
+//    {
+//        $gametype_id = $rs['result'][0]['id'];
+//    }
+//    else
+//    {
+//        $gametype_id = $db->insert('INSERT INTO gametype SET name="' . $_POST['gametype'] . '", guid="' . makeGuid($_POST['gametype']) . '"');
+//        $data['gametype_id'] = $gametype_id;
+//    }
 
-    $rs = $db->select('SELECT id FROM game WHERE name="' . $_POST['game'] . '"');
 
-    if ($rs['total'] != 0)
-    {
-        $game_id = $rs['result'][0]['id'];
-    }
-    else
-    {
-        $game_id = $db->insert('INSERT INTO game SET name="' . $_POST['game'] . '", guid="' . makeGuid($_POST['game']) . '"');
-        $data['game_id'] = $game_id;
-    }
-
-
-    // RETRIEVE GAMETYPE ID
-
-    $rs = $db->select('SELECT id FROM gametype WHERE name="' . $_POST['gametype'] . '"');
-
-    if ($rs['total'] != 0)
-    {
-        $gametype_id = $rs['result'][0]['id'];
-    }
-    else
-    {
-        $gametype_id = $db->insert('INSERT INTO gametype SET name="' . $_POST['gametype'] . '", guid="' . makeGuid($_POST['gametype']) . '"');
-        $data['gametype_id'] = $gametype_id;
-    }
+    $data['game_id'] = $_POST['game'];
+    $data['gametype_id'] = $_POST['gametype'];
 
 
     // RETRIEVE HAUTHOR ID

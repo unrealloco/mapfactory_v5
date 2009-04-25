@@ -10,16 +10,17 @@
 
             <div class="niceText">
                 <p>You made a new map or came across a good map and you want it to be on Map Factory ?</p>
-				<p>Simply fill this form with all the informations (only description is not needed) and submit it.
-				    <ul>
-				        <li><strong>SCREENSHOTS</strong>: only JPG, GIF and PNG lower than 2Mb (size should be at last 640x480)</li>
-				        <li><strong>FILE</strong>: must be compressed using ZIP format</li>
-				        <li><strong>FILE</strong>: must be lower than 80Mb</li>
-				        <li>The map file must contains all the data needed to play the map</li>
-				        <li>Once you clicked on the submit button wait for the upload precess to be complet (may take a few minutes)</li>
-				        <li>Use suggestions when they appear under fields if they are apropriated</li>
-				    </ul>
-				</p>
+                <p>Simply fill this form with all the informations (only description is not needed) and submit it.
+                    <ul>
+                        <li><strong>SCREENSHOTS</strong>: only JPG, GIF and PNG lower than 2Mb (size should be at last 640x480)</li>
+                        <li><strong>FILE</strong>: must be compressed using ZIP format</li>
+                        <li><strong>FILE</strong>: must be lower than 80Mb</li>
+                        <li>The map file must contains all the data needed to play the map</li>
+                        <li>Once you clicked on the submit button wait for the upload precess to be complet (may take a few minutes)</li>
+                        <li>Use suggestions when they appear under fields if they are apropriated</li>
+                    </ul>
+                </p>
+                <p><strong>If the Game or Gametype of your map is not in the list, <a href="{ROOT_PATH}infos/contact-us">contact us</a> and we'll add it for you !</strong></p>
             </div>
 
             <!-- SECTION notIE6 -->
@@ -41,10 +42,20 @@
                     <label><span>*</span> Title:</label><input maxlength="32" type="text" value="" name="title" class="field" />
                 </div>
                 <div class="line">
-                    <label><span>*</span> Game:</label><input maxlength="32" type="text" value="" name="game" class="field" />
+                    <label><span>*</span> Game:</label>
+                    <select name="gametype">
+                        <!-- LOOP game -->
+                        <option value="{game.id}">{game.name}</option>
+                        <!-- END game -->
+                    </select>
                 </div>
                 <div class="line">
-                    <label><span>*</span> Gametype:</label><input maxlength="32" type="text" value="" name="gametype" class="field" />
+                    <label><span>*</span> Gametype:</label>
+                    <select name="gametype">
+                        <!-- LOOP gametype -->
+                        <option value="{gametype.id}">{gametype.name}</option>
+                        <!-- END gametype -->
+                    </select>
                 </div>
                 <div class="line">
                     <label><span>*</span> Author of the map:</label><input maxlength="32" type="text" value="" name="author" class="field" />
