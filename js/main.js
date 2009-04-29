@@ -136,7 +136,7 @@
             $('submitMapDimer').hide();
             $('submitMapComplete').hide();
 
-            createAutoField($(form.game), 'game', 'name');
+            createAutoField($(form.author), 'author', 'name');
 
             submitSwfu1 = new SWFUpload(
             {
