@@ -24,7 +24,7 @@
 
     foreach($rs['result'] as $item)
     {
-        $tpl->assignLoopVar('game', array (
+        $tpl->assignLoopVar('submit_game', array (
             'id' => $item['id'],
             'name' => $item['name']
         ));
@@ -47,7 +47,7 @@
 
     foreach($rs['result'] as $item)
     {
-        $tpl->assignLoopVar('gametype', array (
+        $tpl->assignLoopVar('submit_gametype', array (
             'id' => $item['id'],
             'name' => $item['name']
         ));

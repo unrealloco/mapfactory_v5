@@ -43,18 +43,18 @@
             </div>
             <div class="line">
                 <label><span>*</span> Game:</label>
-                <select name="gametype">
-                    <!-- LOOP game -->
-                    <option value="{game.id}">{game.name}</option>
-                    <!-- END game -->
+                <select name="game">
+                    <!-- LOOP submit_game -->
+                    <option value="{submit_game.id}">{submit_game.name}</option>
+                    <!-- END submit_game -->
                 </select>
             </div>
             <div class="line">
                 <label><span>*</span> Gametype:</label>
                 <select name="gametype">
-                    <!-- LOOP gametype -->
-                    <option value="{gametype.id}">{gametype.name}</option>
-                    <!-- END gametype -->
+                    <!-- LOOP submit_gametype -->
+                    <option value="{submit_gametype.id}">{submit_gametype.name}</option>
+                    <!-- END submit_gametype -->
                 </select>
             </div>
             <div class="line">

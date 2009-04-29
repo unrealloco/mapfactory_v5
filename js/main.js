@@ -141,11 +141,11 @@
             submitSwfu1 = new SWFUpload(
             {
     			flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
-                upload_url: ROOT_PATH + 'remote/uploadScreenshot.php',
+                        upload_url: ROOT_PATH + 'remote/uploadScreenshot.php',
 
     			file_size_limit: 1024 * 2,
     			file_types: '*.jpg;*.gif;*.png',
-                file_types_description: 'JPG/GIF/PNG image, 1Mb maximum',
+                        file_types_description: 'JPG/GIF/PNG image, 1Mb maximum',
     			file_upload_limit: 0,
     			file_queue_limit : 10,
     			debug: false,
@@ -159,9 +159,9 @@
     			button_placeholder_id: 'submitScreenshot',
     			button_cursor : SWFUpload.CURSOR.HAND,
 
-                file_queue_error_handler : _screenshotQueueError,
+                        file_queue_error_handler : _screenshotQueueError,
     			file_queued_handler: _screenshotQueued,
-                upload_progress_handler: _screenshotUploadProgress,
+                        upload_progress_handler: _screenshotUploadProgress,
     			upload_complete_handler: _screenshotUploadComplete,
     			upload_success_handler: _screenshotUploadSuccess,
     			upload_error_handler : _uploadError
@@ -169,11 +169,11 @@
 
             submitSwfu2 = new SWFUpload({
     			flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
-                upload_url: ROOT_PATH + 'remote/uploadFile.php',
+                        upload_url: ROOT_PATH + 'remote/uploadFile.php',
 
     			file_size_limit: 1024 * 80,
     			file_types: '*.zip',
-                file_types_description: 'ZIP file, 80Mb maximum',
+                        file_types_description: 'ZIP file, 80Mb maximum',
     			file_upload_limit: 1,
     			file_queue_limit : 1,
     			debug: false,
@@ -187,9 +187,9 @@
     			button_placeholder_id: 'submitFile',
     			button_cursor : SWFUpload.CURSOR.HAND,
 
-                file_queue_error_handler : _fileQueueError,
+                        file_queue_error_handler : _fileQueueError,
     			file_queued_handler: _fileQueued,
-                upload_progress_handler: _fileUploadProgress,
+                        upload_progress_handler: _fileUploadProgress,
     			upload_complete_handler: _fileUploadComplete,
     			upload_success_handler: _fileUploadSuccess,
     			upload_error_handler : _uploadError
@@ -430,7 +430,7 @@
 
         if (title.blank() || game.blank() || gametype.blank() || author.blank())
         {
-            alert('Oups ! you did not fill the form :)');
+            alert('Oups ! you did not fill all the form :)');
             return;
         }
 
