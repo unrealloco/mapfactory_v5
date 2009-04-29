@@ -16,7 +16,7 @@
                 </li>
                 <!-- END comment.response -->
             </ul>
-            <em name="{comment.id}">>> Repply</em>
+            <em name="{comment.id}">>> Reply</em>
         </li>
         <!-- END comment -->
     </ul>

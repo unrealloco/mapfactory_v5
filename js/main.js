@@ -1101,7 +1101,7 @@
             commentRepplyForm.remove();
             if (activeRepply == this.readAttribute('name'))
             {
-                this.update('>> Repply');
+                this.update('>> Reply');
                 return;
             }
         }
@@ -1174,7 +1174,7 @@
                 repply.insert(new Element('span').update('now'));
                 repply.insert(new Element('p').update(message));
 
-                $('commentRepplyForm').previous().update('>> Repply');
+                $('commentRepplyForm').previous().update('>> Reply');
                 $('commentRepplyForm').previous().previous().insert(repply);
                 $('commentRepplyForm').remove();
             }
