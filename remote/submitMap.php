@@ -42,8 +42,8 @@
 //    }
 
 
-    $data['game_id'] = $_POST['game'];
-    $data['gametype_id'] = $_POST['gametype'];
+    $game_id = $data['game_id'] = $_POST['game'];
+    $gametype_id = $data['gametype_id'] = $_POST['gametype'];
 
 
     // RETRIEVE HAUTHOR ID
