@@ -35,11 +35,15 @@
 
         foreach ($rs['result'] as $comment)
     	{
+            $message = nl2br($comment['message']);
+            $message = preg_replace('/([\t\r\n\v\f]+)/is', '', $message);
+            $message = preg_replace('/((?:<br \/>){2,})/is', '<br /><br />', $message);
+
             $tpl->assignLoopVar('comment', array
             (
                 'time'       => timeWarp($comment['date']),
                 'name'       => $comment['name'],
-                'message'    => $comment['message'],
+                'message'    => $message,
                 'id'         => $comment['id']
             ));
 
