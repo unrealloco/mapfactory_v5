@@ -1,6 +1,6 @@
 <?php
 
-	include('bloc/search.php');
+    include('bloc/search.php');
     include('bloc/recent_activity.php');
 
     /////////////////////////
@@ -106,7 +106,6 @@
                 $tpl->assignVar(array
                 (
                     'page_title'    => 'Oups ! no map found ...',
-                    'search_query'  => utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q'])))),
                     'search_path'   => str_replace(array('/', '-'), array(' >> ', ' '), preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link))
                 ));
 
@@ -236,6 +235,11 @@
             'result_total'    => number_format($rs['total'], 0, '', ',')
     	));
     }
+
+    $tpl->assignVar(array
+    (
+        'search_query'  => utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q']))))
+    ));
 
 
     /////////////////////////
