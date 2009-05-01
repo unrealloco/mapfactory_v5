@@ -2,6 +2,8 @@
     <h1>{page_title}</h1>
 
     <div id="map">
+        <p class="backButton"><a href="{ROOT_PATH}{game_guid}">&lt;&lt; back to {game} map list</a></p>
+
         <div id="preview">
             <!-- SECTION previewList -->
             <ul id="previewList">

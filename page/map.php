@@ -52,25 +52,25 @@
                 'page_title'    => $item['game'] . ' - ' . $item['title']
             ));
 
-            $tpl->assignVar(array
-            (
-                'id'             => $item['id'],
-                'title'          => $item['title'],
-                'game'           => $item['game'],
-                'gametype'       => $item['gametype'],
-                'author'         => $item['author'],
-                'author_id'      => $item['author_id'],
-                'image'          => $item['image'],
-                'description'    => $item['description'],
-                'download'       => $item['download'],
-                'download_s'     => ($item['download'] > 1) ? 's' : '',
-                'comment'        => $item['comment'],
+    		$tpl->assignVar(array
+    		(
+                    'id'             => $item['id'],
+                    'title'          => $item['title'],
+                    'game'           => $item['game'],
+                    'gametype'       => $item['gametype'],
+                    'author'         => $item['author'],
+                    'author_id'      => $item['author_id'],
+                    'image'          => $item['image'],
+                    'description'    => $item['description'],
+                    'download'       => $item['download'],
+                    'download_s'     => ($item['download'] > 1) ? 's' : '',
+                    'comment'        => $item['comment'],
 
-                'map_guid'       => $item['guid'],
-                'game_guid'      => $item['game_guid'],
-                'gametype_guid'  => $item['gametype_guid'],
-                'author_guid'    => $item['author_guid']
-            ));
+                    'map_guid'       => $item['guid'],
+                    'game_guid'      => $item['game_guid'],
+                    'gametype_guid'  => $item['gametype_guid'],
+                    'author_guid'    => $item['author_guid']
+    		));
 
             if (!empty($item['description']))
             {

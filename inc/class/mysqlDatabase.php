@@ -17,7 +17,7 @@
 
 		function connect (){
 			if (!$this->CON = @mysql_connect (DB_HOST, DB_USER, DB_PASS)){
-				echo '<html><head><title>Francoiscogne - service unavailable</title></head><body><h1><b>Francoiscogne</b> is temporarily unavailable.</h1><h2><i>come back in a few minutes ...</i></h2></body></html>';
+				echo '<html><head><title>Map Factory - service unavailable</title></head><body><h1><b>Map Factory</b> is temporarily unavailable.</h1><h2><i>come back in a few minutes ...</i></h2></body></html>';
 				exit ();
 			}
 

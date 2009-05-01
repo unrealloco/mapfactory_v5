@@ -718,6 +718,11 @@ padding: 0 5px 10px 5px;
 line-height: 16px;
 }
 
+#map p.backButton
+{
+margin: 0 0 5px 0;
+}
+
 #map div.info
 {
 background: #f9f9f9;
