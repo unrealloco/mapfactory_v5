@@ -51,11 +51,15 @@
             {
                 if ($response['parent_id'] == $comment['id'])
                 {
+                    $message = nl2br($response['message']);
+                    $message = preg_replace('/([\t\r\n\v\f]+)/is', '', $message);
+                    $message = preg_replace('/((?:<br \/>){2,})/is', '<br /><br />', $message);
+
                     $tpl->assignLoopVar('comment.response', array
                     (
                             'time'       => timeWarp($response['date']),
                             'name'       => $response['name'],
-                            'message'    => $response['message']
+                            'message'    => $message
                     ));
                 }
             }

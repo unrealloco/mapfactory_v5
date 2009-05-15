@@ -1166,16 +1166,9 @@
         new Ajax.Request (ROOT_PATH + '/remote/commentPostRepply.php', {
             parameters: $H(param).toQueryString(),
             onSuccess: function(xhr){
-                var repply = new Element('li').setStyle({
-                    'paddingLeft': '5px'
-                });
+                toogleBlock('commentList', true);
+                commentShowPage(0);
 
-                repply.insert(new Element('strong').update(name));
-                repply.insert(new Element('span').update('now'));
-                repply.insert(new Element('p').update(message));
-
-                $('commentRepplyForm').previous().update('>> Reply');
-                $('commentRepplyForm').previous().previous().insert(repply);
                 $('commentRepplyForm').remove();
             }
         });
@@ -1253,6 +1246,11 @@
         {
             if (forced)
             {
+                if (block.hasClassName('on'))
+                {
+                    return;
+                }
+
                 if (IE)
                 {
                     block.show();
@@ -1277,6 +1275,10 @@
                 {
                     block.removeClassName('on');
                     block.previous().removeClassName('on');
+                }
+                else
+                {
+                    return;
                 }
 
                 if (IE)
