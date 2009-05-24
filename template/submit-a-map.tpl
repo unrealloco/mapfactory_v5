@@ -14,7 +14,7 @@
                 <ul>
                     <li><strong>SCREENSHOTS</strong>: only JPG, GIF and PNG lower than 2Mb (size should be at last 640x480)</li>
                     <li><strong>FILE</strong>: must be compressed using ZIP format</li>
-                    <li><strong>FILE</strong>: must be lower than 80Mb</li>
+                    <li><strong>FILE</strong>: must be lower than 150Mb</li>
                     <li>The map file must contains all the data needed to play the map</li>
                     <li>Once you clicked on the submit button wait for the upload precess to be complet (may take a few minutes)</li>
                     <li>Use suggestions when they appear under fields if they are apropriated</li>
@@ -67,7 +67,7 @@
                 <label><span>*</span> Screenshots:</label><em>JPG/PNG/GIF 2Mb max</em><div id="submitScreenshot"></div><div id="submitScreenshotList"></div>
             </div>
             <div class="line">
-                <label><span>*</span> File:</label><em>ZIP 80Mb max</em><div id="submitFile"></div><div id="submitFileList"></div>
+                <label><span>*</span> File:</label><em>ZIP 150Mb max</em><div id="submitFile"></div><div id="submitFileList"></div>
             </div>
             <div class="line">
                 <label></label><input type="submit" value="Submit this map !" name="submit" class="submit" />

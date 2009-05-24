@@ -171,9 +171,9 @@
     			flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
                         upload_url: ROOT_PATH + 'remote/uploadFile.php',
 
-    			file_size_limit: 1024 * 80,
+    			file_size_limit: 1024 * 150,
     			file_types: '*.zip',
-                        file_types_description: 'ZIP file, 80Mb maximum',
+                        file_types_description: 'ZIP file, 150Mb maximum',
     			file_upload_limit: 1,
     			file_queue_limit : 1,
     			debug: false,
@@ -228,7 +228,7 @@
                 break;
 
             case -110:
-                alert('ERROR: File exceeds size limit. Zip file size must be lower than 80Mb.');
+                alert('ERROR: File exceeds size limit. Zip file size must be lower than 150Mb.');
                 break;
 
             case -120:
