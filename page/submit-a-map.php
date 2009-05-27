@@ -12,13 +12,9 @@
         g.name
 
         FROM game   AS g
-        JOIN map    AS m ON m.game_id=g.id
 
         WHERE     g.status=1
-        AND       m.status=1
-        AND       m.date < '.time ().'
 
-        GROUP BY g.id
         ORDER BY g.name
     ');
 
@@ -35,13 +31,9 @@
         g.name
 
         FROM gametype   AS g
-        JOIN map        AS m ON m.gametype_id=g.id
 
         WHERE     g.status=1
-        AND       m.status=1
-        AND       m.date < '.time ().'
 
-        GROUP BY g.id
         ORDER BY g.name
     ');
 
