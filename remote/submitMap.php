@@ -56,7 +56,7 @@
     }
     else
     {
-        $author_id = $db->insert('INSERT INTO author SET name="' . $_POST['author'] . '"');
+        $author_id = $db->insert('INSERT INTO author SET name="' . $_POST['author'] . '", guid="' . makeGUID($_POST['author']) . '"');
         $data['author_id'] = $author_id;
     }
 
