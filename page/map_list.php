@@ -13,8 +13,24 @@
         'list_' . ((isOK($_GET['game'])) ? $_GET['game'] : 'ALL') .
         '_' . ((isOK($_GET['gametype'])) ? $_GET['gametype'] : 'ALL') .
         '_' . ((isOK($_GET['q'])) ? md5($_GET['q']) : 'ALL') .
-        '_' . ((isOK($_GET['p'])) ? $_GET['p'] : '0')
+        '_' . ((isOK($_GET['p'])) ? $_GET['p'] : '0') .
+        '_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date')
     );
+
+    $orderBy = 'm.date';
+
+    if ($_GET['sortby'] == 'commented')
+    {
+        $orderBy = 'comment';
+    }
+    else if ($_GET['sortby'] == 'rated')
+    {
+        $orderBy = 'ratting';
+    }
+    else if ($_GET['sortby'] == 'downloaded')
+    {
+        $orderBy = 'download';
+    }
 
     if ($tpl->isCached('cached/map_list.tpl', 60) == false)
     {
@@ -50,7 +66,7 @@
             AND       a.status = 1
 
             GROUP BY m.id
-            ORDER BY m.date DESC',
+            ORDER BY ' . $orderBy . ' DESC',
             (($_GET['p'] > 0) ? $_GET['p'] - 1 : $_GET['p']) * MAP_PER_PAGE, MAP_PER_PAGE
     	);
 
@@ -72,6 +88,7 @@
                     'comment_s'      => ($item['comment'] > 1)?'s':'',
                     'download_s'     => ($item['download'] > 1)?'s':'',
                     'ratting'        => round (($item['ratting'] / 5) * 80),
+                    'rattingPercent' => round (($item['ratting'] / 5) * 100),
 
                     'map_guid'       => $item['guid'],
                     'game_guid'      => $item['game_guid'],
@@ -89,7 +106,7 @@
 
 
     	/////////////////////////
-    	// PAGINATION
+    	// NOT RESULTS
     	/////////////////////////
 
     	$pageTotal = ceil($rs['total'] / MAP_PER_PAGE);
@@ -169,6 +186,13 @@
             }
         }
 
+
+
+
+    	/////////////////////////
+    	// PAGINATION
+    	/////////////////////////
+
     	if ($_GET['p'] > 0)
     	{
     	   $_GET['p'] --;
@@ -193,7 +217,7 @@
             $tpl->assignLoopVar('pagination_' . $n, array
             (
                 'n'      => $p + 1,
-                'link'   => $link . (($p == 0) ? '' : $p + 1),
+                'link'   => $link . (($p == 0) ? '' : $p + 1) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : ''),
                 'class'  => ($p == $_GET['p']) ? 'on' : 'off'
             ));
     	}
@@ -204,8 +228,8 @@
 
             $tpl->assignVar(array
             (
-                'pagination_next' => $link . ($_GET['p'] + 2),
-                'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p'])
+                'pagination_next' => $link . ($_GET['p'] + 2) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : ''),
+                'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p']) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : 'a')
             ));
 
             if ($_GET['p'] > 0)
@@ -218,6 +242,40 @@
                 $tpl->assignSection('pagination_next');
             }
     	}
+
+
+
+
+    	/////////////////////////
+    	// SORT BY
+    	/////////////////////////
+
+        $tpl->assignSection('sortBy');
+
+        $currentURI = '';
+
+        if (isOK($_GET['game']))
+        {
+            $currentURI .= $_GET['game'] . '/';
+
+            if (isOK($_GET['gametype']))
+            {
+                $currentURI .= $_GET['gametype'] . '/';
+            }
+        }
+
+        if (isOK($_GET['q']))
+        {
+            $currentURI .= 'search/' . $_GET['q'] . '/';
+        }
+
+        $tpl->assignVar(array
+        (
+            'currentURI' => substr($currentURI, 0, -1),
+            'sortBy_active_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date') => 'on'
+        ));
+
+
 
 
     	/////////////////////////

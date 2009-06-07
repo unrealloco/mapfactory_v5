@@ -1,14 +1,24 @@
 
     <h1>{page_title}</h1>
 
+    <!-- SECTION sortBy -->
+    <ul class="sortBy">
+        <li>Sort by : </li>
+        <li class="{sortBy_active_date}"><a href="{ROOT_PATH}{currentURI}">date</a> - </li>
+        <li class="{sortBy_active_commented}"><a href="{ROOT_PATH}{currentURI}?sortby=commented">comment</a> - </li>
+        <li class="{sortBy_active_rated}"><a href="{ROOT_PATH}{currentURI}?sortby=rated">rating</a> - </li>
+        <li class="{sortBy_active_downloaded}"><a href="{ROOT_PATH}{currentURI}?sortby=downloaded">download</a></li>
+    </ul>
+    <!-- END sortBy -->
+
     <!-- SECTION result_info -->
-        <p class="resultInfo">maps {result_from}-{result_to} of {result_total}</p>
-        <!-- END result_info -->
+    <p class="resultInfo">maps {result_from}-{result_to} of {result_total}</p>
+    <!-- END result_info -->
 
     <ul class="maplist">
         <!-- LOOP map -->
         <li class="line {map.class}">
-            <span class="info"><span class="star"><span style="width:{map.ratting}px;"></span></span>{map.comment} comment{map.comment_s} | {map.download} download{map.download_s} |</span>
+            <span class="info" title="rating : {map.rattingPercent}/100"><span class="star"><span style="width:{map.ratting}px;"></span></span>{map.comment} comment{map.comment_s} | {map.download} download{map.download_s} |</span>
 
             <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}" class="preview">
                 <img src="{ROOT_PATH}screenshot/80x60/{map.map_guid}-{map.image}.jpg" width="80px" height="60px" alt="{map.title}" title="{map.game} {map.title}">

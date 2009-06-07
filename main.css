@@ -304,6 +304,19 @@ font-size: 14px;
 }
 
 
+/* ================== SORT BY */
+
+ul.sortBy li
+{
+display: inline;
+}
+
+ul.sortBy li.on a
+{
+font-weight: bold;
+}
+
+
 /* ================== PAGINATION */
 
 div.pagination
@@ -1127,4 +1140,6 @@ position: relative;
 {
 font-size: 18px;
 }
+
+
 
