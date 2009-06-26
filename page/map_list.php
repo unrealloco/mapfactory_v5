@@ -174,6 +174,8 @@
 
                 header("HTTP/1.0 404 Not Found");
 
+                mail404();
+
                 $tpl->clearLayout();
                 $tpl->clearSection();
                 $tpl->assignVar('PAGE_TITLE', 'Map Factory - 404 not Found');

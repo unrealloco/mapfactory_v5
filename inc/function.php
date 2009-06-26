@@ -10,6 +10,13 @@
             echo '</pre>';
     }
 
+    function mail404 (){
+        $headers = "MIME-Version: 1.0\n";
+        $headers .= "content-type: text/html; charset=iso-8859-1\n";
+        $headers .= "From: Admin <" . ADMIN_EMAIL . ">\n";
+
+        mail (ADMIN_EMAIL, 'MapFactory - 404', 'on page: ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '<br />from page: ' . $_SERVER['HTTP_REFERER'], $headers);
+    }
 
 
 
