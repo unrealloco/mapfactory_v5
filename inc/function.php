@@ -10,6 +10,12 @@
             echo '</pre>';
     }
 
+    function log404 (){
+        $file = fopen('log/404', 'a');
+        fwrite($file, date('c') . '  - ON: ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . ' - FROM: ' . $_SERVER['HTTP_REFERER'] . "\n");
+        fclose($file);
+    }
+
     function mail404 (){
         $headers = "MIME-Version: 1.0\n";
         $headers .= "content-type: text/html; charset=iso-8859-1\n";

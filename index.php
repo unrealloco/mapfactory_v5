@@ -10,7 +10,8 @@
     {
         header("HTTP/1.0 404 Not Found");
 
-        mail404();
+//        mail404();
+        log404();
 
         $tpl->clearLayout();
         $tpl->clearSection();
