@@ -6,10 +6,13 @@ $n = 0;
 
 foreach($fileList as $file)
 {
-    if (filemtime('cache/' . $file) < time() - (3600 * 1))
+    if ($file != '.' && $file != '..')
     {
-        $n ++;
-        unlink('cache/' . $file);
+        if (filemtime('cache/' . $file) < time() - (3600 * 1))
+        {
+            $n ++;
+            unlink('cache/' . $file);
+        }
     }
 }
 
