@@ -18,8 +18,8 @@
     <ul class="maplist">
         <!-- LOOP map -->
         <li class="line {map.class}">
-            <span class="info" title="rating : {map.rattingPercent}/100">
-                <span class="star"><span style="width:{map.ratting}px;"></span></span>
+            <span class="info">
+                <span class="star" title="rating : {map.rattingPercent}/100"><span style="width:{map.ratting}px;"></span></span>
                 <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}#comment" class="preview">
                     {map.comment} comment{map.comment_s}
                 </a>
