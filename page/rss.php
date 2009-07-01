@@ -51,7 +51,6 @@
 
                 $description = '';
                 $description .= '<ul>';
-                $description .= '<ul>';
                 $description .=     '<li>';
                 $description .=         '<b>Game: </b> <a href="' . ROOT_PATH . $item['game_guid'] . '">' . $item['game'] . '</a>';
                 $description .=     '</li>';
@@ -62,7 +61,7 @@
                 $description .=         '<b>Author: </b> <a href="' . ROOT_PATH . 'author/' . $item['author_guid'] . '-' . $item['author_id'] . '">' . $item['author'] . '</a>';
                 $description .=     '</li>';
                 $description .= '</ul>';
-                $description .= '<center><a href="' . ROOT_PATH . $item['game_guid'] . '/' . $item['gametype_guid'] . '/' . $item['guid'] . '-' . $item['id'] . '"><img src="' . ROOT_PATH . 'screenshot/160x120/' . $item['guid'] . '-' . $item['image'] . '.jpg" width="160px" height="120px" /></a></center>';
+                $description .= '<p><a href="' . ROOT_PATH . $item['game_guid'] . '/' . $item['gametype_guid'] . '/' . $item['guid'] . '-' . $item['id'] . '"><img src="' . ROOT_PATH . 'screenshot/160x120/' . $item['guid'] . '-' . $item['image'] . '.jpg" width="160px" height="120px" /></a></p>';
 
                 $tpl->assignLoopVar('map', array
                 (
@@ -85,7 +84,7 @@
             }
 
             $tpl->assignVar (array (
-                'PAGE_TITLE' => PAGE_TITLE.' - '.ucfirst ($_GET['type']),
+                'PAGE_TITLE' => PAGE_TITLE.' - Latest maps',
                 'type' => $_GET['type'],
                 'lastBuildDate' => $lastBuildDate
             ));
