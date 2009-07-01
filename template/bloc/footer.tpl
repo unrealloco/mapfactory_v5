@@ -3,6 +3,7 @@
 
     <div id="footer">
         <p>
+            <a href="{ROOT_PATH}rss">RSS feed</a> -
             <a href="{ROOT_PATH}infos/about-mapfactory">about Map-Factory</a> -
             <a href="{ROOT_PATH}infos/terms-of-service">Terms of Service</a> -
             <a href="{ROOT_PATH}infos/contact-us">Contact us</a> -

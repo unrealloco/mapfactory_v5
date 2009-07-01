@@ -18,6 +18,7 @@
 
     <link rel="icon" type="image/x-icon" href="{ROOT_PATH}favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="{ROOT_PATH}favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="MapFactory's latest maps" href="{ROOT_PATH}rss" />
 
     <script type="text/javascript" src="{ROOT_PATH}js/lib/swfupload.js"></script>
     <script type="text/javascript" src="{ROOT_PATH}js/lib/prototype-1.6.0.3.js"></script>
