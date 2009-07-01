@@ -1,4 +1,4 @@
-#!/usr/bin/env php5
+#!/usr/local/bin/php5
 <?php
 
 $fileList = scandir('cache');
