@@ -18,7 +18,13 @@
     <ul class="maplist">
         <!-- LOOP map -->
         <li class="line {map.class}">
-            <span class="info" title="rating : {map.rattingPercent}/100"><span class="star"><span style="width:{map.ratting}px;"></span></span>{map.comment} comment{map.comment_s} | {map.download} download{map.download_s} |</span>
+            <span class="info" title="rating : {map.rattingPercent}/100">
+                <span class="star"><span style="width:{map.ratting}px;"></span></span>
+                <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}#comment" class="preview">
+                    {map.comment} comment{map.comment_s}
+                </a>
+                | {map.download} download{map.download_s} |
+            </span>
 
             <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}" class="preview">
                 <img src="{ROOT_PATH}screenshot/80x60/{map.map_guid}-{map.image}.jpg" width="80px" height="60px" alt="{map.title}" title="{map.game} {map.title}">

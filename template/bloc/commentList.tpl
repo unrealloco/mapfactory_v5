@@ -1,7 +1,5 @@
 
-    <a name="commentList"></a>
-
-        <p class="resultInfo">comments {result_from}-{result_to} of {result_total}</p>
+    <p class="resultInfo">comments {result_from}-{result_to} of {result_total}</p>
 
     <ul class="comments">
         <!-- LOOP comment -->

@@ -83,6 +83,8 @@
     <div class="toggleBlock">
         <strong class="toggle {commentClass}" onclick="javascript:toogleBlock('commentList');">Comments ({comment})</strong>
 
+        <a name="comment"></a>
+
         <div id="commentList" class="{commentClass}" style="display: {commentDisplay};">
             <!-- INCLUDE bloc/commentList.tpl -->
         </div>
