@@ -91,6 +91,9 @@
         }
     }
 
+    header('Content-Type: text/xml; charset=utf-8');
+    header("Cache-Control: max-age=" . (3600 * 1) . ', must-revalidate');
+
     $tpl->display();
 
     exit();
