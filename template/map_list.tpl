@@ -1,8 +1,6 @@
 
     <!-- INCLUDE bloc/top.tpl -->
 
-    <!-- INCLUDE bloc/search.tpl -->
-
     <!-- INCLUDE bloc/ie6warning.tpl -->
 
     <div id="colLeft_list">
