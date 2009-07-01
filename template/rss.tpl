@@ -1,5 +1,5 @@
 <rss version="2.0">
-	<channel>
+  <channel>
   <!-- INCLUDE cached/rss.tpl 60 -->
-	</channel>
+  </channel>
 </rss>
