@@ -100,7 +100,7 @@
         header("HTTP/1.0 404 Not Found");
 
 //        mail404();
-        log404();
+        log404('map.php');
 
         $tpl->clearLayout();
         $tpl->clearSection();

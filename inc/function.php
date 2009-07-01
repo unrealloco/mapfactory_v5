@@ -10,9 +10,9 @@
             echo '</pre>';
     }
 
-    function log404 (){
+    function log404 ($source){
         $file = fopen('log/404', 'a');
-        fwrite($file, date('c') . ' - ' . $_SERVER['REMOTE_ADDR'] . ' - ON: ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . ' - FROM: ' . $_SERVER['HTTP_REFERER'] . "\n");
+        fwrite($file, date('c') . ' - ' . $_SERVER['REMOTE_ADDR'] . ' - ON: ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . ' - FROM: ' . $_SERVER['HTTP_REFERER'] . " - IN: " . $source . " \n");
         fclose($file);
     }
 

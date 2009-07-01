@@ -175,7 +175,7 @@
                 header("HTTP/1.0 404 Not Found");
 
 //                mail404();
-                log404();
+                log404('map_list.php');
 
                 $tpl->clearLayout();
                 $tpl->clearSection();

@@ -11,7 +11,7 @@
         header("HTTP/1.0 404 Not Found");
 
 //        mail404();
-        log404();
+        log404('index.php');
 
         $tpl->clearLayout();
         $tpl->clearSection();
