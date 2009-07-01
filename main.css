@@ -99,8 +99,8 @@ margin: 66px 0 0 0;
 
 #footer
 {
-margin: 30px 0 0 0;
-padding: 5px 0 0 0;
+margin: 50px 0 0 0;
+padding: 5px 0;
 text-align: center;
 background: #f9f9f9;
 border-top: solid 1px #f0f0f0;
@@ -108,14 +108,16 @@ color: #999;
 }
 
 #footer p {
-margin-top: 5px;
 color: #ccc;
 text-align: center;
+width: 900px;
+margin: 5px auto;
 }
 
 #footer ul {
-margin: 10px 0;
 line-height: 20px;
+width: 900px;
+margin: 10px auto;
 }
 
 #footer ul li {
@@ -1140,6 +1142,4 @@ position: relative;
 {
 font-size: 18px;
 }
-
-
 
