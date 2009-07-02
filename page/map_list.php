@@ -14,7 +14,8 @@
         '_' . ((isOK($_GET['gametype'])) ? $_GET['gametype'] : 'ALL') .
         '_' . ((isOK($_GET['q'])) ? md5($_GET['q']) : 'ALL') .
         '_' . ((isOK($_GET['p'])) ? $_GET['p'] : '0') .
-        '_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date')
+        '_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date') .
+        '_' . ((isOK($_GET['limitto'])) ? $_GET['limitto'] : 'none')
     );
 
     $orderBy = 'm.date';
