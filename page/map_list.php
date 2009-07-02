@@ -42,7 +42,7 @@
     {
         $limitTo = 'AND m.data > ' . (time() - (86400 * 7));
     }
-    else if ($_GET['sortby'] == 'month')
+    else if ($_GET['limitto'] == 'month')
     {
         $limitTo = 'AND m.data > ' . (time() - (86400 * 30));
     }
