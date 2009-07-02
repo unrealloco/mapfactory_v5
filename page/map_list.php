@@ -37,19 +37,19 @@
 
     if ($_GET['limitto'] == 'day')
     {
-        $limitTo = 'AND m.data > ' . (time() - 86400);
+        $limitTo = 'AND m.date > ' . (time() - 86400);
     }
     else if ($_GET['limitto'] == 'week')
     {
-        $limitTo = 'AND m.data > ' . (time() - (86400 * 7));
+        $limitTo = 'AND m.date > ' . (time() - (86400 * 7));
     }
     else if ($_GET['limitto'] == 'month')
     {
-        $limitTo = 'AND m.data > ' . (time() - (86400 * 30));
+        $limitTo = 'AND m.date > ' . (time() - (86400 * 30));
     }
     else if ($_GET['sortby'] == '3month')
     {
-        $limitTo = 'AND m.data > ' . (time() - (86400 * 30 * 3));
+        $limitTo = 'AND m.date > ' . (time() - (86400 * 30 * 3));
     }
 
     if ($tpl->isCached('cached/map_list.tpl', 60) == false)
