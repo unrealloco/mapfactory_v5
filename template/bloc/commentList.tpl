@@ -4,17 +4,16 @@
     <ul class="comments">
         <!-- LOOP comment -->
         <li class="comment">
-            <strong>{comment.name}</strong> <span>{comment.time}</span>
+            <em name="{comment.id}">>> Reply</em><strong>{comment.name}</strong> <span>({comment.time})</span>
             <p>{comment.message}</p>
             <ul class="repllies">
                 <!-- LOOP comment.response -->
                 <li class="repply">
-                    <strong>{comment.response.name}</strong><span>{comment.response.time}</span>
+                    <strong>{comment.response.name}</strong><span>({comment.response.time})</span>
                     <p>{comment.response.message}</p>
                 </li>
                 <!-- END comment.response -->
             </ul>
-            <em name="{comment.id}">>> Reply</em>
         </li>
         <!-- END comment -->
     </ul>

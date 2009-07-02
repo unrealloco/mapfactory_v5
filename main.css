@@ -533,7 +533,7 @@ margin: 20px 0 10px 0;
 
 #commentList p.resultInfo
 {
-margin: 10px 0 0 0;
+margin: 0 0 10px 0;
 color: #999;
 }
 
@@ -541,7 +541,7 @@ color: #999;
 {
 color: #999;
 margin: 0 0 0 5px;
-font-style: italic;
+/*font-style: italic;*/
 }
 
 #commentList ul.repllies
@@ -560,6 +560,7 @@ padding: 0 0 2px 0;
 {
 color: #ff6666;
 cursor: pointer;
+float: right;
 }
 
 #commentList li.comment em.hover
@@ -570,9 +571,9 @@ color: #aa0000;
 
 #commentList li.comment
 {
-margin: 10px 0;
-padding: 10px 0 0px 0;
-border-top: solid 1px #f0f0f0;
+margin: 8px 0;
+padding: 8px 0 0px 0;
+border-top: solid 1px #E9E9E9;
 }
 
 #commentList li.comment:first-child
@@ -592,7 +593,9 @@ margin: 5px 0 5px 5px;
 
 #commentList li.comment form
 {
-margin: 10px 0 0 0;
+margin: 5px 0 0 0;
+padding: 5px 10px;
+background: #f0f0f0;
 }
 
 #commentList li.comment form div
@@ -615,7 +618,7 @@ width: 150px;
 #commentList li.comment form textarea
 {
 width: 400px;
-height: 50px;
+height: 80px;
 }
 
 #commentList li.comment form input.submit
