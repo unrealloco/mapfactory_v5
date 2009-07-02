@@ -35,21 +35,21 @@
 
     $limitTo = '';
 
-    if ($_GET['limitto'] == 'day')
+    if (preg_match('/^([0-9]+)day$/', $_GET['limitto'], $matches) > 0)
     {
-        $limitTo = 'AND m.date > ' . (time() - 86400);
+        $limitTo = 'AND m.date > ' . mktime(0, 0, 0, date('n'), date('j') - $matches[1], date('Y'));
     }
-    else if ($_GET['limitto'] == 'week')
+    else if (preg_match('/^([0-9]+)week$/', $_GET['limitto'], $matches) > 0)
     {
-        $limitTo = 'AND m.date > ' . (time() - (86400 * 7));
+        $limitTo = 'AND m.date > ' . mktime(0, 0, 0, date('n'), date('j') - ($matches[1] * 7), date('Y'));
     }
-    else if ($_GET['limitto'] == 'month')
+    else if (preg_match('/^([0-9]+)month$/', $_GET['limitto'], $matches) > 0)
     {
-        $limitTo = 'AND m.date > ' . (time() - (86400 * 30));
+        $limitTo = 'AND m.date > ' . mktime(0, 0, 0, date('n') - $matches[1], date('j'), date('Y'));
     }
-    else if ($_GET['sortby'] == '3month')
+    else if (preg_match('/^([0-9]+)year$/', $_GET['limitto'], $matches) > 0)
     {
-        $limitTo = 'AND m.date > ' . (time() - (86400 * 30 * 3));
+        $limitTo = 'AND m.date > ' . mktime(0, 0, 0, date('n'), date('j'), date('Y') - $matches[1]);
     }
 
     if ($tpl->isCached('cached/map_list.tpl', 60) == false)
@@ -280,7 +280,7 @@
     	/////////////////////////
 
         $tpl->assignSection('sortBy');
-//        $tpl->assignSection('limitTo');
+        $tpl->assignSection('limitTo');
 
         $currentURI = '';
 

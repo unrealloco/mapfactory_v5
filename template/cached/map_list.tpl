@@ -15,10 +15,9 @@
     <ul class="limitTo">
         <li>Limit to : </li>
         <li class="{limitTo_active_none}"><a href="{ROOT_PATH}{currentURI}{limitTo_url_none}">all time</a> - </li>
-        <li class="{limitTo_active_day}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=day">last today</a> - </li>
-        <li class="{limitTo_active_week}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=week">last week</a> - </li>
-        <li class="{limitTo_active_month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=month">last month</a> - </li>
-        <li class="{limitTo_active_3month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=3month">last 3 months</a></li>
+        <li class="{limitTo_active_month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=1month">last month</a> - </li>
+        <li class="{limitTo_active_3month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=3month">last 3 months</a> - </li>
+        <li class="{limitTo_active_3month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=1year">last year</a></li>
     </ul>
     <!-- END limitTo -->
 
