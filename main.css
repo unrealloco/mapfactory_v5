@@ -914,6 +914,7 @@ height: 60px;
 position: absolute;
 margin: 0 0 0 -84px;
 border: solid 2px #ccc;
+visibility: hidden;
 }
 
 

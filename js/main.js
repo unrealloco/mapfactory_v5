@@ -707,6 +707,10 @@
         if (activity)
         {
             $('activityPreview').hide();
+            $('activityPreview').setStyle(
+            {
+                visibility: 'visible'
+            });
 
             var mapList = activity.childElements();
 
