@@ -308,12 +308,19 @@ font-size: 14px;
 
 /* ================== SORT BY */
 
-ul.sortBy li
+ul.limitTo
+{
+margin: 5px 0 0 0;
+}
+
+ul.sortBy li,
+ul.limitTo li
 {
 display: inline;
 }
 
-ul.sortBy li.on a
+ul.sortBy li.on a,
+ul.limitTo li.on a
 {
 font-weight: bold;
 }

@@ -32,6 +32,25 @@
         $orderBy = 'download';
     }
 
+    $limitTo = '';
+
+    if ($_GET['limitto'] == 'day')
+    {
+        $limitTo = 'AND m.data < ' . (time() - 86400);
+    }
+    else if ($_GET['limitto'] == 'week')
+    {
+        $limitTo = 'AND m.data < ' . (time() - (86400 * 7));
+    }
+    else if ($_GET['sortby'] == 'month')
+    {
+        $limitTo = 'AND m.data < ' . (time() - (86400 * 30));
+    }
+    else if ($_GET['sortby'] == '3month')
+    {
+        $limitTo = 'AND m.data < ' . (time() - (86400 * 30 * 3));
+    }
+
     if ($tpl->isCached('cached/map_list.tpl', 60) == false)
     {
     	$rs = $db->select('SELECT
@@ -61,6 +80,7 @@
             ' . ((isset($_GET['gametype']) && is_string($_GET['gametype'])) ? 'AND t.guid="' . $_GET['gametype'] . '"' : '') . '
             ' . ((isOk ($_GET['q'])) ? 'AND CONCAT_WS(" ", m.title, g.name, t.name, a.name, m.description) LIKE(\'' . getLikeList ($_GET['q']) . '\')' : '' ) . '
             AND       m.date < '.time ().'
+            ' . $limitTo . '
             AND       g.status = 1
             AND       t.status = 1
             AND       a.status = 1
@@ -201,6 +221,11 @@
     	   $_GET['p'] --;
         }
 
+        $currentParameters = '?';
+        $currentParameters .= ((isOK($_GET['sortby'])) ? 'sortby=' . $_GET['sortby'] . '&' : '');
+        $currentParameters .= ((isOK($_GET['limitto'])) ? 'limitto=' . $_GET['limitto'] . '&' : '');
+        $currentParameters = ((strlen($currentParameters) == 1) ? '' : substr($currentParameters, 0, -1));
+
     	for ($p = 0; $p < $pageTotal; $p ++)
     	{
             if ($p > 2 && $p < $_GET['p'] - 4)
@@ -220,7 +245,7 @@
             $tpl->assignLoopVar('pagination_' . $n, array
             (
                 'n'      => $p + 1,
-                'link'   => $link . (($p == 0) ? '' : $p + 1) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : ''),
+                'link'   => $link . (($p == 0) ? '' : $p + 1) . $currentParameters,
                 'class'  => ($p == $_GET['p']) ? 'on' : 'off'
             ));
     	}
@@ -231,8 +256,8 @@
 
             $tpl->assignVar(array
             (
-                'pagination_next' => $link . ($_GET['p'] + 2) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : ''),
-                'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p']) . ((isOK($_GET['sortby'])) ? '?sortby=' . $_GET['sortby'] : 'a')
+                'pagination_next' => $link . ($_GET['p'] + 2) . $currentParameters,
+                'pagination_prev' => $link . (($_GET['p'] == 1) ? '' : $_GET['p']) . $currentParameters
             ));
 
             if ($_GET['p'] > 0)
@@ -250,10 +275,11 @@
 
 
     	/////////////////////////
-    	// SORT BY
+    	// SORT BY / LIMIT TO
     	/////////////////////////
 
         $tpl->assignSection('sortBy');
+        $tpl->assignSection('limitTo');
 
         $currentURI = '';
 
@@ -272,10 +298,20 @@
             $currentURI .= 'search/' . $_GET['q'] . '/';
         }
 
+        $sortByParameter .= ((isOK($_GET['sortby'])) ? 'sortby=' . $_GET['sortby'] . '&' : '');
+        $limitToParameter .= ((isOK($_GET['limitto'])) ? '&limitto=' . $_GET['limitto'] : '');
+
         $tpl->assignVar(array
         (
             'currentURI' => substr($currentURI, 0, -1),
-            'sortBy_active_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date') => 'on'
+
+            'sortBy_active_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date') => 'on',
+            'sortBy_url_none' => ((isOk($limitToParameter)) ? '?limitto=' . $_GET['limitto'] : ''),
+            'sortByParameter' => $sortByParameter,
+
+            'limitTo_active_' . ((isOK($_GET['limitto'])) ? $_GET['limitto'] : 'none') => 'on',
+            'limitTo_url_none' => ((isOk($sortByParameter)) ? '?sortby=' . $_GET['sortby'] : ''),
+            'limitToParameter' => $limitToParameter
         ));
 
 
