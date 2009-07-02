@@ -279,7 +279,7 @@
     	/////////////////////////
 
         $tpl->assignSection('sortBy');
-        $tpl->assignSection('limitTo');
+//        $tpl->assignSection('limitTo');
 
         $currentURI = '';
 
