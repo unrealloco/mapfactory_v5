@@ -1,25 +1,35 @@
 
     <h1>{page_title}</h1>
 
-    <!-- SECTION sortBy -->
-    <ul class="sortBy">
-        <li>Sort by : </li>
-        <li class="{sortBy_active_date}"><a href="{ROOT_PATH}{currentURI}{sortBy_url_none}">date</a> - </li>
-        <li class="{sortBy_active_commented}"><a href="{ROOT_PATH}{currentURI}?sortby=commented{limitToParameter}">comment</a> - </li>
-        <li class="{sortBy_active_rated}"><a href="{ROOT_PATH}{currentURI}?sortby=rated{limitToParameter}">rating</a> - </li>
-        <li class="{sortBy_active_downloaded}"><a href="{ROOT_PATH}{currentURI}?sortby=downloaded{limitToParameter}">download</a></li>
-    </ul>
-    <!-- END sortBy -->
+    <form method="get" id="filter">
+        <!-- SECTION sortBy -->
+        <label>
+            <span>Order by</span>
+            <select name="sortby" onChange="javascript:filterSubmit();">
+                <!-- LOOP sortBy_list -->
+                <option value="{sortBy_list.value}"{sortBy_list.selected}>{sortBy_list.option}</option>
+                <!-- END sortBy_list -->
+            </select>
+        </label>
+        <!-- END sortBy -->
 
-    <!-- SECTION limitTo -->
-    <ul class="limitTo">
-        <li>Limit to : </li>
-        <li class="{limitTo_active_none}"><a href="{ROOT_PATH}{currentURI}{limitTo_url_none}">all time</a> - </li>
-        <li class="{limitTo_active_month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=1month">last month</a> - </li>
-        <li class="{limitTo_active_3month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=3month">last 3 months</a> - </li>
-        <li class="{limitTo_active_3month}"><a href="{ROOT_PATH}{currentURI}?{sortByParameter}limitto=1year">last year</a></li>
-    </ul>
-    <!-- END limitTo -->
+        <!-- SECTION sortBy -->
+        <!-- SECTION limitTo -->
+        <span>,</span>
+        <!-- END limitTo -->
+        <!-- END sortBy -->
+
+        <!-- SECTION limitTo -->
+        <label>
+            <span>Limit to</span>
+            <select name="limitto" onChange="javascript:filterSubmit();">
+                <!-- LOOP limitTo_list -->
+                <option value="{limitTo_list.value}"{limitTo_list.selected}>{limitTo_list.option}</option>
+                <!-- END limitTo_list -->
+            </select>
+        </label>
+        <!-- END limitTo -->
+    </form>
 
     <!-- SECTION result_info -->
     <p class="resultInfo">maps {result_from}-{result_to} of {result_total}</p>

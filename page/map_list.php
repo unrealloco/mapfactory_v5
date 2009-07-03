@@ -282,38 +282,41 @@
         $tpl->assignSection('sortBy');
         $tpl->assignSection('limitTo');
 
-        $currentURI = '';
-
-        if (isOK($_GET['game']))
-        {
-            $currentURI .= $_GET['game'] . '/';
-
-            if (isOK($_GET['gametype']))
-            {
-                $currentURI .= $_GET['gametype'] . '/';
-            }
-        }
-
-        if (isOK($_GET['q']))
-        {
-            $currentURI .= 'search/' . $_GET['q'] . '/';
-        }
-
-        $sortByParameter .= ((isOK($_GET['sortby'])) ? 'sortby=' . $_GET['sortby'] . '&' : '');
-        $limitToParameter .= ((isOK($_GET['limitto'])) ? '&limitto=' . $_GET['limitto'] : '');
-
-        $tpl->assignVar(array
+        $sortBy_choiceList = array
         (
-            'currentURI' => substr($currentURI, 0, -1),
+            ''           => 'date',
+            'commented'  => 'comment',
+            'rated'      => 'rating',
+            'downloaded' => 'download',
+        );
 
-            'sortBy_active_' . ((isOK($_GET['sortby'])) ? $_GET['sortby'] : 'date') => 'on',
-            'sortBy_url_none' => ((isOk($limitToParameter)) ? '?limitto=' . $_GET['limitto'] : ''),
-            'sortByParameter' => $sortByParameter,
+        $limitTo_choiceList = array
+        (
+            ''       => 'all time',
+            'month'  => 'last month',
+            '3month' => 'last 3 months',
+            '1year'  => 'last year',
+        );
 
-            'limitTo_active_' . ((isOK($_GET['limitto'])) ? $_GET['limitto'] : 'none') => 'on',
-            'limitTo_url_none' => ((isOk($sortByParameter)) ? '?sortby=' . $_GET['sortby'] : ''),
-            'limitToParameter' => $limitToParameter
-        ));
+        foreach ($sortBy_choiceList as $value => $option)
+        {
+            $tpl->assignLoopVar('sortBy_list', array
+            (
+                'option'   => $option,
+                'value'    => $value,
+                'selected' => ((isOK($_GET['sortby']) && $_GET['sortby'] == $value) ? ' selected="selected"' : ''),
+            ));
+        }
+
+        foreach ($limitTo_choiceList as $value => $option)
+        {
+            $tpl->assignLoopVar('limitTo_list', array
+            (
+                'option'   => $option,
+                'value'    => $value,
+                'selected' => ((isOK($_GET['limitto']) && $_GET['limitto'] == $value) ? ' selected="selected"' : ''),
+            ));
+        }
 
 
 
