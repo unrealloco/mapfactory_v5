@@ -12,25 +12,25 @@
         $db->delete('DELETE FROM map_file WHERE parent_id=' . $_POST['map_id']);
     }
 
-    if (isOk($_POST['game_id']))
-    {
-        $rs = $db->select('SELECT id FROM map WHERE game_id = ' . $_POST['game_id']);
+//    if (isOk($_POST['game_id']))
+//    {
+//        $rs = $db->select('SELECT id FROM map WHERE game_id = ' . $_POST['game_id']);
+//
+//        if ($rs['total'] == 0)
+//        {
+//            $db->delete('DELETE FROM game WHERE id=' . $_POST['game_id']);
+//        }
+//    }
 
-        if ($rs['total'] == 0)
-        {
-            $db->delete('DELETE FROM game WHERE id=' . $_POST['game_id']);
-        }
-    }
-
-    if (isOk($_POST['gametype_id']))
-    {
-        $rs = $db->select('SELECT id FROM map WHERE gametype_id = ' . $_POST['gametype_id']);
-
-        if ($rs['total'] == 0)
-        {
-            $db->delete('DELETE FROM gametype WHERE id=' . $_POST['gametype_id']);
-        }
-    }
+//    if (isOk($_POST['gametype_id']))
+//    {
+//        $rs = $db->select('SELECT id FROM map WHERE gametype_id = ' . $_POST['gametype_id']);
+//
+//        if ($rs['total'] == 0)
+//        {
+//            $db->delete('DELETE FROM gametype WHERE id=' . $_POST['gametype_id']);
+//        }
+//    }
 
     if (isOk($_POST['author_id']))
     {
