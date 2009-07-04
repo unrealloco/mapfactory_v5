@@ -234,6 +234,16 @@ margin: 30px 0 40px 0;
 margin: 20px 0 100px 20px;
 }
 
+#filter span
+{
+margin: 0 8px 0 0;
+}
+
+#filter select
+{
+margin: 0 0 0 -6px;
+}
+
 ul.maplist li.line
 {
 height: 60px;
@@ -308,12 +318,19 @@ font-size: 14px;
 
 /* ================== SORT BY */
 
-ul.sortBy li
+ul.limitTo
+{
+margin: 5px 0 0 0;
+}
+
+ul.sortBy li,
+ul.limitTo li
 {
 display: inline;
 }
 
-ul.sortBy li.on a
+ul.sortBy li.on a,
+ul.limitTo li.on a
 {
 font-weight: bold;
 }
