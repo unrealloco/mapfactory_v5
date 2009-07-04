@@ -294,7 +294,9 @@
         (
             ''       => 'all time',
             'month'  => 'last month',
+            '2month' => 'last 2 months',
             '3month' => 'last 3 months',
+            '6month' => 'last 6 months',
             '1year'  => 'last year',
         );
 

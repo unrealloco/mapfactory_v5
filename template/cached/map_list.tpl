@@ -21,7 +21,7 @@
 
         <!-- SECTION limitTo -->
         <label>
-            <span>Limit to</span>
+            <span>limit to</span>
             <select name="limitto" onChange="javascript:filterSubmit();">
                 <!-- LOOP limitTo_list -->
                 <option value="{limitTo_list.value}"{limitTo_list.selected}>{limitTo_list.option}</option>
