@@ -1,4 +1,5 @@
 
+        <div id="pushFooter"></div>
     </div>
 
     <div id="footer">
