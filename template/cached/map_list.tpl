@@ -28,6 +28,7 @@
                 <!-- END limitTo_list -->
             </select>
         </label>
+        <span>maps.</span>
         <!-- END limitTo -->
     </form>
 
