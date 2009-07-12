@@ -4,3 +4,5 @@
         <a href="{ROOT_PATH}" id="logo"></a>
     </div>
 
+    <!-- INCLUDE bloc/search.tpl -->
+

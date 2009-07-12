@@ -39,6 +39,7 @@
             parameters: $H(param).toQueryString(),
             onSuccess: function(xhr)
             {
+                console.log(xhr.responseText);
                 $('moreMapGame').update(xhr.responseText);
                 morMapGame_cache[gameId][page] = xhr.responseText;
             }

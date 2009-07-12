@@ -30,7 +30,6 @@
     <link rel="stylesheet" type="text/css" href="{ROOT_PATH}main.css?{VERSION}">
 </head>
 <body>
-    <!-- INCLUDE bloc/search.tpl -->
 
     <div id="main">
 

@@ -19,15 +19,24 @@
     	$rs = $db->select('SELECT
             m.id                    AS id,
             m.title                 AS title,
-            m.image_id              AS image,
+            m.guid                  AS guid,
+            m.download              AS download,
             m.ratting               AS ratting,
-            g.guid                  as game_guid,
+            m.image_id              AS image,
+            g.name                  AS game,
+            g.guid                  AS game_guid,
             t.name                  AS gametype,
-            t.guid                  AS gametype_guid
+            t.guid                  AS gametype_guid,
+            a.name                  AS author,
+            a.id                    AS author_id,
+            a.guid                  AS author_guid,
+            COUNT(DISTINCT c.id)    AS comment
 
             FROM              map             AS m
             JOIN              game            AS g    ON m.game_id = g.id
             JOIN              gametype        AS t    ON m.gametype_id = t.id
+            JOIN              author          AS a    ON m.author_id = a.id
+            LEFT OUTER JOIN   map_comment     AS c    ON c.map_id=m.id AND c.status=1
 
             WHERE     m.status = 1
             AND       m.game_id = ' . $gameId . '
@@ -44,17 +53,26 @@
     	{
             $tpl->assignLoopVar('moreMapGame', array
             (
-                'id'             => $item['id'],
-                'title'          => $item['title'],
-                'gametype'       => $item['gametype'],
-                'image'          => $item['image'],
-                'ratting'        => round (($item['ratting'] / 5) * 80),
+                    'id'             => $item['id'],
+                    'title'          => $item['title'],
+                    'game'           => $item['game'],
+                    'gametype'       => $item['gametype'],
+                    'author'         => $item['author'],
+                    'author_id'      => $item['author_id'],
+                    'image'          => $item['image'],
+                    'comment'        => $item['comment'],
+                    'download'       => $item['download'],
+                    'comment_s'      => ($item['comment'] > 1)?'s':'',
+                    'download_s'     => ($item['download'] > 1)?'s':'',
+                    'ratting'        => round (($item['ratting'] / 5) * 80),
+                    'rattingPercent' => round (($item['ratting'] / 5) * 100),
 
-                'game_guid'      => $item['game_guid'],
-                'map_guid'       => makeGUID($item['title']),
-                'gametype_guid'  => $item['gametype_guid'],
+                    'map_guid'       => $item['guid'],
+                    'game_guid'      => $item['game_guid'],
+                    'gametype_guid'  => $item['gametype_guid'],
+                    'author_guid'    => $item['author_guid'],
 
-                'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
+                    'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
             ));
         }
 

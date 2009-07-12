@@ -61,10 +61,11 @@
                     <a href="{ROOT_PATH}{map.game_guid}" alt="{map.game}" title="{map.game} custom maps">{map.game}</a>
                     <span>-</span>
                     <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}" alt="{map.gametype}" title="{map.game} {map.gametype}">{map.gametype}</a>
-                </li>
-                <li>
+                    <span>-</span>
                     <span>realised by</span>
                     <a href="{ROOT_PATH}author/{map.author_guid}-{map.author_id}" alt="{map.author}" title="{map.author}'s maps">{map.author}</a>
+                </li>
+                <li>
                 </li>
             </ul>
         </li>

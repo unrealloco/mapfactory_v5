@@ -45,14 +45,14 @@ h1
 {
 font-size: 18px;
 border-bottom: 3px solid #ff6666;
-margin: 10px 0;
+margin: 20px 0 10px 0;
 }
 
 h3
 {
 font-size: 18px;
 border-bottom: 3px solid #ff6666;
-margin: 10px 0 0 0;
+margin: 15px 0 0 0;
 }
 
 
@@ -60,8 +60,7 @@ margin: 10px 0 0 0;
 
 #main
 {
-width: 950px;
-margin: -5px auto 0 auto;
+margin: -5px 10px 0 10px;
 background: url('http://www.map-factory.org/media/image/layout/logo.png') 0 10px no-repeat;
 
 min-height: 100%;
@@ -76,8 +75,8 @@ margin-bottom: -176px;
 #pub_top
 {
 width: 728px;
-height: 90px;
-background: #f9f9f9;
+height: 15px;
+margin: 20px 0 0 0;
 }
 
 #pub_middle
@@ -90,12 +89,17 @@ background: #f9f9f9;
 
 /* ================== TOP */
 
+#top
+{
+height: 140px;
+}
+
 #logo
 {
 display: block;
 width: 300px;
 height: 128px;
-margin: 5px 0 55px 0;
+margin: 15px 0 0 0;
 }
 
 #submitButton
@@ -166,16 +170,9 @@ color: #ccc;
 border: solid 1px #ff6666;
 border-width: 1px 0;
 background: url('http://www.map-factory.org/media/image/layout/search_background.png');
-position: absolute;
-padding: 5px 0;
-margin: 138px 0 0 0;
-width: 100%;
-}
-
-#search div.content
-{
-margin: 0 auto;
-width: 930px;
+padding: 5px 10px;
+margin: 0 -10px 0 -10px;
+position: relative;
 }
 
 #search input,
@@ -214,27 +211,26 @@ padding: 2px;
 
 #colLeft_map
 {
-width: 640px;
-float: left;
+margin: 0 510px 0 0;
 }
 
 #colRight_map
 {
-width: 300px;
-float: left;
+width: 500px;
+float: right;
 margin: 0 0 0 10px;
 }
 
 #colLeft_list
 {
-width: 728px;
-float: left;
+width: auto;
+margin: 0 260px 0 0;
 }
 
 #colRight_list
 {
-width: 212px;
-float: left;
+width: 250px;
+float: right;
 margin: 0 0 0 10px;
 }
 
@@ -274,6 +270,7 @@ ul.maplist li.line
 height: 60px;
 margin: 5px 0 5px 0;
 position: relative;
+color: #999;
 }
 
 ul.maplist li.odd
@@ -325,14 +322,9 @@ ul.maplist li.line ul
 float: left;
 }
 
-ul.maplist.more li.line ul
-{
-width: 195px;
-}
-
 ul.maplist li.line ul li
 {
-margin: 4px 0;
+margin: 8px 0;
 }
 
 ul.maplist li.line ul li strong
@@ -470,46 +462,26 @@ font-weight: normal;
 
 #preview
 {
-border: solid 2px #ccc;
+border-top: solid 5px #ccc;
 border-width: 2px 0;
-height: 480px;
-position: relative;
+background: #ccc;
+height: 490px;
+overflow-x: auto;
+overflow-y: hidden;
+white-space: nowrap;
+line-height: 10px;
 }
 
-#preview ul
+#preview li
 {
-position: absolute;
-right: 0;
-z-index: 10;
-margin: 5px 0 0 0;
+display: inline;
+margin: 0 8px 0 0;
 }
 
-#preview ul li
+#preview li:last-child
 {
-margin: 0 5px;
-}
-
-#preview ul li img
-{
-cursor: pointer;
-border: solid 2px #999;
--moz-border-radius: 4px;
-}
-
-#preview ul li img.on
-{
-border: solid 2px #ff6666;
-}
-
-#preview ul li span
-{
-background: #999;
-display: block;
-text-align: center;
-margin: 0 -2px;
-height: 10px;
-cursor: pointer;
-color: #fff;
+display: inline;
+margin: 0;
 }
 
 
@@ -518,7 +490,7 @@ color: #fff;
 #ratting
 {
 width: 200px;
-border-right: solid 1px #f0f0f0;
+border-right: solid 1px #ccc;
 float: left;
 }
 
@@ -780,28 +752,23 @@ line-height: 16px;
 
 #map p.backButton
 {
-margin: 0 0 5px 0;
+margin: 0 0 10px 0;
 }
 
-#map div.info
+#colLeft_map div.info
 {
-background: #f9f9f9;
+background: #f0f0f0;
 padding: 5px;
+height: 115px;
 }
 
-
-#map div.info div.pub
-{
-float: right;
-}
-
-#map div.info ol.detail
+#colLeft_map div.info ol.detail
 {
 margin: 5px 0 0 20px;
 float: left;
 }
 
-#map div.info ol.detail li
+#colfLeft_map div.info ol.detail li
 {
 margin: 0 0 10px 0;
 }
