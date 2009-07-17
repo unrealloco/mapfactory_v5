@@ -3,7 +3,7 @@
     <li class="line {moreMapGame.class}">
         <span class="info">
             <span class="star" title="rating : {moreMapGame.rattingPercent}/100"><span style="width:{moreMapGame.ratting}px;"></span></span>
-            <a href="{ROOT_PATH}{moreMapGame.game_guid}/{moreMapGame.gametype_guid}/{moreMapGame.map_guid}-{moreMapGame.id}#comment" class="preview">
+            <a href="{ROOT_PATH}{moreMapGame.game_guid}/{moreMapGame.gametype_guid}/{moreMapGame.map_guid}-{moreMapGame.id}#comment">
                 {moreMapGame.comment} comment{moreMapGame.comment_s}
             </a>
             | {moreMapGame.download} download{moreMapGame.download_s} |

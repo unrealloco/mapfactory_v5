@@ -40,6 +40,9 @@
                 <label><span>*</span> Title:</label><input maxlength="32" type="text" value="" name="title" class="field" />
             </div>
             <div class="line">
+                <label><span>*</span> Author of the map:</label><input maxlength="32" type="text" value="" name="author" class="field" />
+            </div>
+            <div class="line">
                 <label><span>*</span> Game:</label>
                 <select name="game">
                     <!-- LOOP submit_game -->
@@ -56,10 +59,7 @@
                 </select>
             </div>
             <div class="line">
-                <label><span>*</span> Author of the map:</label><input maxlength="32" type="text" value="" name="author" class="field" />
-            </div>
-            <div class="line">
-                <label>Description of the map:</label><textarea name="description"></textarea>
+                <label>Description of the map:</label><div class="fit"><textarea name="description"></textarea></div>
             </div>
             <div class="line">
                 <label><span>*</span> Screenshots:</label><em>JPG/PNG/GIF 2Mb max</em><div id="submitScreenshot"></div><div id="submitScreenshotList"></div>

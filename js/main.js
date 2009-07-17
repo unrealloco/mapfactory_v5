@@ -107,28 +107,6 @@
 
     //////////////////////////
     //
-    //  DOWNLOAD
-    //
-    //////////////////////////
-
-    function downloadClick()
-    {
-        var link = $('download_link');
-        var counter = $('download_count');
-        var message = new Element('span').update('Download will start, please wait ...');
-
-        message.hide();
-        link.replace(message);
-        counter.update(parseInt(counter.innerHTML, 10) + 1);
-
-        Effect.Appear(message,
-        {
-            duration: 3
-        });
-    }
-
-    //////////////////////////
-    //
     //  SUBMIT
     //
     //////////////////////////
@@ -783,7 +761,7 @@
 
             var newImage = new Element('img',
             {
-    			'src': '/screenshot/80x60/preview-' + id + '.jpg'
+    			'src': ROOT_PATH + 'screenshot/160x120/preview-' + id + '.jpg'
     		});
 
     		waitPicReady(newImage, function(img)
@@ -892,146 +870,6 @@
         		}
         	});
         }, 800);
-    }
-
-
-    //////////////////////////
-    //
-    //  PREVIEW
-    //
-    //////////////////////////
-
-    var previewIsOpen = true;
-    var previewIsFocus = true;
-    var previewTimeout;
-
-    function initPreview()
-    {
-        var previewList = $('previewList');
-
-        if (previewList)
-        {
-            previewList.observe('mouseover', previewListShow);
-            previewList.observe('mouseout', previewListHide);
-
-            previewListHide();
-
-            var previewElement = previewList.childElements();
-
-            for (var i = 0; i < previewElement.length; i ++)
-            {
-                var element = previewElement[i].down();
-
-                element.observe('click', displayPreview);
-            }
-        }
-    }
-
-    function previewListShow()
-    {
-        window.clearTimeout(previewTimeout);
-
-        if (working.fadePreview || previewIsFocus)
-        {
-            previewTimeout = window.setTimeout(previewListShow, 500);
-            return;
-        }
-
-        previewTimeout = window.setTimeout(function()
-        {
-            working.fadePreview = true;
-
-            Effect.Fade('previewList', {
-        		duration: 0.3,
-        		from: 0.4,
-        		to: 1,
-        		afterFinishInternal: function()
-        		{
-                    working.fadePreview = false;
-                    previewIsFocus = true;
-        		}
-        	});
-        }, 50);
-    }
-
-    function previewListHide()
-    {
-        window.clearTimeout(previewTimeout);
-
-        if (working.fadePreview || !previewIsFocus)
-        {
-            previewTimeout = window.setTimeout(previewListHide, 300);
-            return;
-        }
-
-        previewTimeout = window.setTimeout(function()
-        {
-            working.fadePreview = true;
-
-            Effect.Fade('previewList', {
-        		duration: 0.5,
-        		from: 1,
-        		to: 0.4,
-        		afterFinishInternal: function()
-        		{
-                    working.fadePreview = false;
-                    previewIsFocus = false;
-        		}
-        	});
-        }, 800);
-    }
-
-    function displayPreview()
-    {
-        if (working['displayPreview'])
-        {
-            return;
-        }
-        working['displayPreview'] = true;
-
-        var previewElement = $('previewList').childElements();
-
-        for (var i = 0; i < previewElement.length; i ++)
-        {
-            var element = previewElement[i].down();
-
-            if (element.hasClassName('on'))
-            {
-                element.removeClassName('on');
-            }
-        }
-
-        this.toggleClassName('on');
-
-        var id = this.readAttribute('name');
-
-        var newImage = new Element('img',
-        {
-            'id': 'previewImage',
-			'src': ROOT_PATH + '/screenshot/640x480/preview-' + id + '.jpg'
-		});
-
-		waitPicReady(newImage, displayPreviewCallback);
-    }
-
-    function displayPreviewCallback(img)
-    {
-        $('preview').setStyle({
-    		'background': 'url(' + $('previewImage').readAttribute('src') + ')'
-    	});
-
-        img.hide();
-    	Element.replace($('previewImage'), img);
-
-    	Effect.Appear(img, {
-    		duration: 0.2,
-    		from: 0.2,
-    		to: 1,
-    		afterFinishInternal: function()
-    		{
-                working.displayPreview = false;
-    		}
-    	});
     }
 
 
@@ -1533,7 +1371,6 @@
     {
         initRatting();
         initComment();
-        initPreview();
         initActivity();
         initSubmit();
     };

@@ -1,8 +1,6 @@
 
     <h3>Recent activity</h3>
 
-    <div id="activityPreview"></div>
-
     <ul class="block activity" id="latestActivity">
         <!-- LOOP activity -->
         <li class="map" name="{activity.image}">

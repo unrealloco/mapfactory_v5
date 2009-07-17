@@ -7,7 +7,7 @@ font-size: 12px;
 list-style: none;
 }
 
-div.clear
+.clear
 {
 clear: both;
 }
@@ -17,6 +17,7 @@ clear: both;
 html, body
 {
 height: 100%;
+background: #fff;
 }
 
 a
@@ -61,7 +62,7 @@ margin: 15px 0 0 0;
 #main
 {
 margin: -5px 10px 0 10px;
-background: url('http://www.map-factory.org/media/image/layout/logo.png') 0 10px no-repeat;
+background: url('http://82.67.194.143/mapfactory_v5/media/image/layout/logo_small.png') 0 10px no-repeat;
 
 min-height: 100%;
 height: auto !important;
@@ -91,21 +92,21 @@ background: #f9f9f9;
 
 #top
 {
-height: 140px;
+height: 100px;
 }
 
 #logo
 {
 display: block;
-width: 300px;
-height: 128px;
+width: 200px;
+height: 100px;
 margin: 15px 0 0 0;
 }
 
 #submitButton
 {
 float: right;
-margin: 66px 0 0 0;
+margin: 54px 0 0 0;
 }
 
 
@@ -183,7 +184,7 @@ margin: 0 10px 0 0;
 
 #search input.field
 {
-width: 200px;
+width: 240px;
 }
 
 #search select,
@@ -211,14 +212,13 @@ padding: 2px;
 
 #colLeft_map
 {
-margin: 0 510px 0 0;
+width: 500px;
+float: left;
 }
 
 #colRight_map
 {
-width: 500px;
-float: right;
-margin: 0 0 0 10px;
+margin: 0 0 0 510px;
 }
 
 #colLeft_list
@@ -290,7 +290,7 @@ text-align: right;
 position: absolute;
 right: 0;
 color: #aaa;
-margin: 42px 5px 0 0;
+margin: 45px 5px 0 0;
 }
 
 ul.maplist li.line span.info span.star
@@ -324,7 +324,7 @@ float: left;
 
 ul.maplist li.line ul li
 {
-margin: 8px 0;
+margin: 4px 0;
 }
 
 ul.maplist li.line ul li strong
@@ -460,25 +460,25 @@ font-weight: normal;
 
 /* ================== PREVIEW */
 
-#preview
+#previewList
 {
+margin: 10px 0 0 0;
 border-top: solid 5px #ccc;
 border-width: 2px 0;
 background: #ccc;
-height: 490px;
 overflow-x: auto;
 overflow-y: hidden;
 white-space: nowrap;
-line-height: 10px;
+position:relative;
 }
 
-#preview li
+#previewList li
 {
 display: inline;
 margin: 0 8px 0 0;
 }
 
-#preview li:last-child
+#previewList li:last-child
 {
 display: inline;
 margin: 0;
@@ -750,27 +750,57 @@ padding: 0 5px 10px 5px;
 line-height: 16px;
 }
 
-#map p.backButton
+#mapTitle
 {
-margin: 0 0 10px 0;
+height: 65px;
 }
 
-#colLeft_map div.info
+#mapTitle img
+{
+margin: 0 0 -25px 0;
+}
+
+p.backButton
+{
+margin: 10px 0 10px 0;
+}
+
+#mapInfo
 {
 background: #f0f0f0;
 padding: 5px;
 height: 115px;
 }
 
-#colLeft_map div.info ol.detail
+#mapInfo ol.detail
 {
 margin: 5px 0 0 20px;
 float: left;
 }
 
-#colfLeft_map div.info ol.detail li
+#mapInfo ol.detail li
 {
 margin: 0 0 10px 0;
+}
+
+#mapInfo ol.detail li.download
+{
+margin-top: -5px;
+}
+
+#mapInfo ol.detail li.download a
+{
+text-decoration: none;
+}
+
+#mapInfo ol.detail li.download a:hover span
+{
+text-decoration: underline;
+}
+
+#mapInfo ol.detail li.download img
+{
+margin: 0 4px -18px 0;
 }
 
 
@@ -828,9 +858,15 @@ font-weight: bold;
 width: 180px;
 }
 
+.niceText div div
+{
+margin: 0 0 0 170px;
+position: relative;
+}
+
 .niceText div textarea
 {
-width: 500px;
+width: 100%;
 height: 200px;
 }
 
@@ -855,6 +891,7 @@ padding: 5px 0;
 display: block;
 color: #999;
 border-top: solid 1px #f0f0f0;
+position: relative;
 }
 
 ul.block.activity li.map:first-child a
@@ -864,7 +901,7 @@ border: none;
 
 ul.block.activity li.map a:hover
 {
-background: #fff0f0;
+background: #ffefef;
 color: #aa0000;
 text-decoration: none;
 }
@@ -918,10 +955,10 @@ background: url('http://www.map-factory.org/media/image/layout/icon_comment.png'
 #activityPreview
 {
 background: #ccc;
-width: 80px;
-height: 60px;
+width: 160px;
+height: 120px;
 position: absolute;
-margin: 0 0 0 -84px;
+right: 260px;
 border: solid 2px #ccc;
 visibility: hidden;
 }
@@ -955,12 +992,20 @@ font-weight: bold;
 #submitMap input.field,
 #submitMap select
 {
-width: 150px;
+width: 220px;
+}
+
+#submitMap div.line div.fit
+{
+margin: 0 0 0 150px;
+float: none;
+display: block;
+position: relative;
 }
 
 #submitMap textarea
 {
-width: 420px;
+width: 100%;
 height: 120px;
 }
 

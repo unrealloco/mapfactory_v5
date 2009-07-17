@@ -12,7 +12,7 @@
                             <div><label>Your name :</label><input name="name" maxlength="32" class="field" type="text"></div>
                             <div><label>Your email :</label><input name="email" maxlength="128" class="field" type="text"></div>
                             <div><label>Subject of your message :</label><input name="subject" maxlength="256" class="field" type="text"></div>
-                            <div><label>Your message :</label><textarea name="message"></textarea></div>
+                            <div><label>Your message :</label><div><textarea name="message"></textarea></div></div>
                             <div><label></label><input value="send this message" class="submit" type="submit"></div>
                     </form>
             </div>
