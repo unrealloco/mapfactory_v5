@@ -761,7 +761,7 @@
 
             var newImage = new Element('img',
             {
-    			'src': ROOT_PATH + 'screenshot/160x120/preview-' + id + '.jpg'
+    			'src': '/screenshot/160x120/preview-' + id + '.jpg'
     		});
 
     		waitPicReady(newImage, function(img)
