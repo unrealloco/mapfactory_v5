@@ -53,7 +53,7 @@ h3
 {
 font-size: 18px;
 border-bottom: 3px solid #ff6666;
-margin: 15px 0 0 0;
+margin: 20px 0 0 0;
 }
 
 
@@ -84,6 +84,7 @@ margin: 20px 0 0 0;
 {
 width: 300px;
 height: 250px;
+margin: 20px 0 0 0;
 background: #f9f9f9;
 }
 
@@ -224,12 +225,12 @@ margin: 0 0 0 510px;
 #colLeft_list
 {
 width: auto;
-margin: 0 260px 0 0;
+margin: 0 310px 0 0;
 }
 
 #colRight_list
 {
-width: 250px;
+width: 300px;
 float: right;
 margin: 0 0 0 10px;
 }
@@ -267,6 +268,7 @@ margin: 0 2px 0 -6px;
 
 ul.maplist li.line
 {
+clear: left;
 height: 60px;
 margin: 5px 0 5px 0;
 position: relative;
@@ -906,48 +908,48 @@ color: #aa0000;
 text-decoration: none;
 }
 
-ul.block.activity span.info
+ul.block.activity span.detail
 {
 display: block;
 margin: 4px 0 0 0;
 height: 16px;
 }
 
-ul.block.activity span.info span
+ul.block.activity span.info
 {
 padding: 0 0 0 20px;
 margin: 0 10px 0 0;
 color: #999;
 font-weight: bold;
-float: left;
+float: right;
 }
 
-ul.block.activity span.info span.download
+ul.block.activity span.info.download
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_download_grey.png') left center no-repeat;
 }
 
-ul.block.activity span.info span.vote
+ul.block.activity span.info.vote
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_star_grey.png') left center no-repeat;
 }
 
-ul.block.activity span.info span.comment
+ul.block.activity span.info.comment
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_comment_grey.png') left center no-repeat;
 }
 
-ul.block.activity a:hover span.info span.download
+ul.block.activity a:hover span.info.download
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_download.png') left center no-repeat;
 }
 
-ul.block.activity a:hover span.info span.vote
+ul.block.activity a:hover span.info.vote
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_star.png') left center no-repeat;
 }
 
-ul.block.activity a:hover span.info span.comment
+ul.block.activity a:hover span.info.comment
 {
 background: url('http://www.map-factory.org/media/image/layout/icon_comment.png') left center no-repeat;
 }
@@ -958,7 +960,7 @@ background: #ccc;
 width: 160px;
 height: 120px;
 position: absolute;
-right: 260px;
+right: 310px;
 border: solid 2px #ccc;
 visibility: hidden;
 }

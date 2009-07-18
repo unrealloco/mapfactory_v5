@@ -4,6 +4,19 @@
     <!-- INCLUDE bloc/ie6warning.tpl -->
 
     <div id="colRight_list">
+        <div id="pub_middle">
+            <script type="text/javascript"><!--
+            google_ad_client = "pub-3305665136679236";
+            /* 300x250, date de création 18/07/09 */
+            google_ad_slot = "7394568416";
+            google_ad_width = 300;
+            google_ad_height = 250;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </div>
         <!-- INCLUDE cached/latest_activity.tpl 60 -->
     </div>
 
