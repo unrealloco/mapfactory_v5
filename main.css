@@ -64,6 +64,7 @@ margin: 20px 0 0 0;
 margin: -5px 10px 0 10px;
 background: url('http://www.map-factory.org/media/image/layout/logo_small.png') 0 10px no-repeat;
 
+min-width: 880px;
 min-height: 100%;
 height: auto !important;
 height: 100%;
@@ -213,13 +214,13 @@ padding: 2px;
 
 #colLeft_map
 {
-width: 500px;
+width: 440px;
 float: left;
 }
 
 #colRight_map
 {
-margin: 0 0 0 510px;
+margin: 0 0 0 450px;
 }
 
 #colLeft_list
@@ -268,7 +269,6 @@ margin: 0 2px 0 -6px;
 
 ul.maplist li.line
 {
-clear: left;
 height: 60px;
 margin: 5px 0 5px 0;
 position: relative;
