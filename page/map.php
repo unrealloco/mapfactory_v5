@@ -120,7 +120,7 @@
 
     $rs = $db->select('SELECT id FROM map_image WHERE parent_id=' . $_GET['map']);
 
-    if ($rs['total'] > 1)
+    if ($rs['total'] > 0)
     {
         $tpl->assignSection('previewList');
 
