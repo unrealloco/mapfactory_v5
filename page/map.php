@@ -1,7 +1,7 @@
 <?php
 
-	include ('bloc/search.php');
-	include ('bloc/commentList.php');
+    include ('bloc/search.php');
+    include ('bloc/commentList.php');
 
 
     /////////////////////////
@@ -45,15 +45,15 @@
 
     if (isOK($rs['result'][0]['id']))
     {
-    	foreach ($rs['result'] as $item)
-    	{
+        foreach ($rs['result'] as $item)
+        {
             $tpl->assignVar(array
             (
                 'page_title'    => $item['game'] . ' - ' . $item['title']
             ));
 
-    		$tpl->assignVar(array
-    		(
+            $tpl->assignVar(array
+            (
                     'id'             => $item['id'],
                     'title'          => $item['title'],
                     'game'           => $item['game'],
@@ -70,7 +70,7 @@
                     'game_guid'      => $item['game_guid'],
                     'gametype_guid'  => $item['gametype_guid'],
                     'author_guid'    => $item['author_guid']
-    		));
+            ));
 
             if (!empty($item['description']))
             {
@@ -86,7 +86,7 @@
             $gameName = $item['game'];
             $gametypeName = $item['gametype'];
             $mapTitle = $item['title'];
-    	}
+        }
 
         $file = ROOT_DIR.'media/map/' . $fileId . '.zip';
 
@@ -125,13 +125,18 @@
         $tpl->assignSection('previewList');
 
         foreach ($rs['result'] as $item)
-    	{
+        {
             $tpl->assignLoopVar('preview', array
             (
                 'id'    => $item['id'],
                 'class' => ($imageId == $item['id']) ? 'on' : 'off'
             ));
-    	}
+        }
+    }
+
+    if ($rs['total'] > 1)
+    {
+        $tpl->assignSection('preview_nav');
     }
 
 
@@ -192,7 +197,7 @@
 
     if ($tpl->isCached('cached/more_map_from.tpl', 60) == false)
     {
-    	$rs = $db->select('SELECT
+        $rs = $db->select('SELECT
             m.id                    AS id,
             m.title                 AS title,
             m.image_id              AS image,
@@ -213,10 +218,10 @@
 
             GROUP BY m.id
             ORDER BY m.date DESC'
-    	);
+        );
 
-    	foreach ($rs['result'] as $key => $item)
-    	{
+        foreach ($rs['result'] as $key => $item)
+        {
             $tpl->assignLoopVar('moreMapFrom', array
             (
                 'id'             => $item['id'],

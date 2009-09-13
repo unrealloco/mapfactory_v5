@@ -6,6 +6,96 @@
 
     //////////////////////////
     //
+    // MAP PREVIEW
+    //
+    //////////////////////////
+
+    var previewScrollPage = 0;
+    var previewScrollDirection = 0;
+    var previewScrollTimeout = 0;
+    var previewWidth = 0;
+
+    function initPreview()
+    {
+        previewCheckArrows();
+        previewWidth = $$('#preview img')[0].getWidth() + 10;
+
+        Event.observe(window, 'resize', function()
+        {
+            previewWidth = $$('#preview img')[0].getWidth() + 10;
+            previewScrollTimeout = setTimeout(previewScrollCallback, 30);
+        });
+    }
+
+    function previewScroll(direction)
+    {
+        previewScrollPage += direction;
+        previewScrollDirection = direction;
+
+        if (previewScrollPage < 0)
+        {
+            previewScrollPage = 0;
+        }
+        else if (previewScrollPage > $$('#preview img').length - 1)
+        {
+            previewScrollPage = $$('#preview img').length - 1;
+        }
+        else
+        {
+            if (previewScrollTimeout === 0)
+            {
+                previewCheckArrows();
+                previewScrollTimeout = setTimeout(previewScrollCallback, 30);
+            }
+        }
+    }
+
+    function previewScrollCallback()
+    {
+        if (previewScrollDirection == 1)
+        {
+            $('preview').scrollLeft += Math.ceil(((previewScrollPage * previewWidth) - $('preview').scrollLeft) / 8);
+        }
+        else
+        {
+            $('preview').scrollLeft += Math.floor(((previewScrollPage * previewWidth) - $('preview').scrollLeft) / 8);
+        }
+
+        if ($('preview').scrollLeft != previewScrollPage * previewWidth)
+        {
+            previewScrollTimeout = setTimeout(previewScrollCallback, 30);
+        }
+        else
+        {
+            previewScrollTimeout = 0;
+            previewCheckArrows();
+        }
+    }
+
+    function previewCheckArrows()
+    {
+        if (previewScrollPage > 0)
+        {
+            $('preview_nav_previous').setOpacity(1);
+        }
+        else
+        {
+            $('preview_nav_previous').setOpacity(0.5);
+        }
+
+        if (previewScrollPage < $$('#preview img').length - 1)
+        {
+            $('preview_nav_next').setOpacity(1);
+        }
+        else
+        {
+            $('preview_nav_next').setOpacity(0.5);
+        }
+    }
+
+
+    //////////////////////////
+    //
     // MORE MAP GAME
     //
     //////////////////////////
@@ -83,7 +173,7 @@
 
         if (resetGametype)
         {
-            input = $('search_gametype')
+            input = $('search_gametype');
 
             if (input)
             {
@@ -132,60 +222,60 @@
 
             submitSwfu1 = new SWFUpload(
             {
-    			flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
+                flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
                         upload_url: ROOT_PATH + 'remote/uploadScreenshot.php',
 
-    			file_size_limit: 1024 * 2,
-    			file_types: '*.jpg;*.gif;*.png',
+                file_size_limit: 1024 * 2,
+                file_types: '*.jpg;*.gif;*.png',
                         file_types_description: 'JPG/GIF/PNG image, 1Mb maximum',
-    			file_upload_limit: 0,
-    			file_queue_limit : 10,
-    			debug: false,
-    			use_query_string: false,
+                file_upload_limit: 0,
+                file_queue_limit : 10,
+                debug: false,
+                use_query_string: false,
 
-    			// Button settings
-    			button_image_url: ROOT_PATH + "media/image/layout/xp_pload_61x22.png",	// Relative to the Flash file
-    			button_width: "61",
-    			button_height: "22",
-    			button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
-    			button_placeholder_id: 'submitScreenshot',
-    			button_cursor : SWFUpload.CURSOR.HAND,
+                // Button settings
+                button_image_url: ROOT_PATH + "media/image/layout/xp_pload_61x22.png",    // Relative to the Flash file
+                button_width: "61",
+                button_height: "22",
+                button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
+                button_placeholder_id: 'submitScreenshot',
+                button_cursor : SWFUpload.CURSOR.HAND,
 
                         file_queue_error_handler : _screenshotQueueError,
-    			file_queued_handler: _screenshotQueued,
+                file_queued_handler: _screenshotQueued,
                         upload_progress_handler: _screenshotUploadProgress,
-    			upload_complete_handler: _screenshotUploadComplete,
-    			upload_success_handler: _screenshotUploadSuccess,
-    			upload_error_handler : _uploadError
-    		});
+                upload_complete_handler: _screenshotUploadComplete,
+                upload_success_handler: _screenshotUploadSuccess,
+                upload_error_handler : _uploadError
+            });
 
             submitSwfu2 = new SWFUpload({
-    			flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
+                flash_url : ROOT_PATH + 'js/lib/swfupload.swf',
                         upload_url: ROOT_PATH + 'remote/uploadFile.php',
 
-    			file_size_limit: 1024 * 150,
-    			file_types: '*.zip',
+                file_size_limit: 1024 * 150,
+                file_types: '*.zip',
                         file_types_description: 'ZIP file, 150Mb maximum',
-    			file_upload_limit: 1,
-    			file_queue_limit : 1,
-    			debug: false,
-    			use_query_string: false,
+                file_upload_limit: 1,
+                file_queue_limit : 1,
+                debug: false,
+                use_query_string: false,
 
-    			// Button settings
-    			button_image_url: ROOT_PATH + "media/image/layout/xp_pload_61x22.png",	// Relative to the Flash file
-    			button_width: "61",
-    			button_height: "22",
-    			button_action : SWFUpload.BUTTON_ACTION.SELECT_FILE,
-    			button_placeholder_id: 'submitFile',
-    			button_cursor : SWFUpload.CURSOR.HAND,
+                // Button settings
+                button_image_url: ROOT_PATH + "media/image/layout/xp_pload_61x22.png",    // Relative to the Flash file
+                button_width: "61",
+                button_height: "22",
+                button_action : SWFUpload.BUTTON_ACTION.SELECT_FILE,
+                button_placeholder_id: 'submitFile',
+                button_cursor : SWFUpload.CURSOR.HAND,
 
                         file_queue_error_handler : _fileQueueError,
-    			file_queued_handler: _fileQueued,
+                file_queued_handler: _fileQueued,
                         upload_progress_handler: _fileUploadProgress,
-    			upload_complete_handler: _fileUploadComplete,
-    			upload_success_handler: _fileUploadSuccess,
-    			upload_error_handler : _uploadError
-    		});
+                upload_complete_handler: _fileUploadComplete,
+                upload_success_handler: _fileUploadSuccess,
+                upload_error_handler : _uploadError
+            });
         }
     }
 
@@ -208,6 +298,9 @@
             case -130:
                 alert('ERROR: Invalide filetype. Screenshot files must be of type JPG, PNG or GIF.');
                 break;
+
+            default :
+                break;
         }
     }
 
@@ -229,6 +322,9 @@
 
             case -130:
                 alert('ERROR: Invalide filetype. Your map must be compressed in a ZIP file.');
+                break;
+
+            default :
                 break;
         }
     }
@@ -262,6 +358,9 @@
             case -280:
             case -290:
                 break;
+
+            default :
+                break;
         }
     }
 
@@ -286,7 +385,10 @@
         info.observe('click', function()
         {
             this.remove();
-            while(submitSwfu1.cancelUpload()){}
+            while(submitSwfu1.cancelUpload())
+            {
+                continue;
+            }
         });
 
         $('submitScreenshotList').update(info);
@@ -300,10 +402,10 @@
     function _screenshotUploadComplete(fileObj)
     {
         if (submitSwfu1.getStats().files_queued > 0){
-			submitSwfu1.startUpload();
-		}else{
-		    submitSwfu2.startUpload();
-		}
+            submitSwfu1.startUpload();
+        }else{
+            submitSwfu2.startUpload();
+        }
     }
 
     function _fileUploadSuccess(fileObj, data)
@@ -322,7 +424,10 @@
         info.observe('click', function()
         {
             this.remove();
-            while(submitSwfu2.cancelUpload()){}
+            while(submitSwfu2.cancelUpload())
+            {
+                continue;
+            }
         });
 
         $('submitFileList').update(info);
@@ -359,8 +464,14 @@
 
     function submitCancel()
     {
-        while(submitSwfu1.cancelUpload()){}
-        while(submitSwfu2.cancelUpload()){}
+        while(submitSwfu1.cancelUpload())
+        {
+            continue;
+        }
+        while(submitSwfu2.cancelUpload())
+        {
+            continue;
+        }
 
         submitSwfu1.stopUpload();
         submitSwfu2.stopUpload();
@@ -542,7 +653,6 @@
             autoList.update();
             autoList.hide();
             e.preventDefault();
-            return false;
         }else{
             window.clearTimeout(autoTimeout);
             if (typeof working['auto_' + autoTable] == 'undefined' || !working['auto_' + autoTable])
@@ -554,6 +664,7 @@
                 autoTimeout = window.setTimeout(autoUpdateList, 500);
             }
         }
+        return false;
     }
 
     function autoUpdateList()
@@ -593,27 +704,27 @@
     {
         var data = xhr.responseJSON;
 
-		autoList.update();
+        autoList.update();
 
-		if (data.length !== 0)
+        if (data.length !== 0)
         {
-	        for (var i = 0; i < data.length; i ++){
-				autoList.insert(autoListItem(data[i].value));
-			}
+            for (var i = 0; i < data.length; i ++){
+                autoList.insert(autoListItem(data[i].value));
+            }
             autoList.show();
-		}else{
-		    autoList.hide();
-		}
+        }else{
+            autoList.hide();
+        }
 
-		// if we typed while ajax request was going on
-		if (autoValue != autoInput.value){
+        // if we typed while ajax request was going on
+        if (autoValue != autoInput.value){
             working['auto_' + autoTable] = false;
-		    autoUpdated();
-		}
-		else
-		{
-		  autoTimeout = window.setTimeout(function(){working['auto_' + autoTable] = false;}, 500);
-		}
+            autoUpdated();
+        }
+        else
+        {
+          autoTimeout = window.setTimeout(function(){working['auto_' + autoTable] = false;}, 500);
+        }
     }
 
     function autoListItem(value)
@@ -761,11 +872,11 @@
 
             var newImage = new Element('img',
             {
-    			'src': '/screenshot/160x120/preview-' + id + '.jpg'
-    		});
+                'src': '/screenshot/160x120/preview-' + id + '.jpg'
+            });
 
-    		waitPicReady(newImage, function(img)
-    		{
+            waitPicReady(newImage, function(img)
+            {
                 avtivityPreviewId = id;
                 activitySetPreviewCallback(img);
             });
@@ -799,16 +910,16 @@
                 });
             }
 
-			img.hide();
+            img.hide();
             $('activityPreview').update(img);
 
             Effect.Appear(img, {
-        		duration: 0.4,
-        		afterFinishInternal: function()
-        		{
+                duration: 0.4,
+                afterFinishInternal: function()
+                {
                     working.activityImage = false;
-        		}
-        	});
+                }
+            });
         }, 100);
     }
 
@@ -828,14 +939,14 @@
             working.activity = true;
 
             Effect.Appear('activityPreview', {
-        		duration: 0.2,
-        		afterFinishInternal: function()
-        		{
+                duration: 0.2,
+                afterFinishInternal: function()
+                {
                     working.activity = false;
                     activityIsOpen = true;
-        		}
-        	});
-    	}, 50);
+                }
+            });
+        }, 50);
     }
 
     function activityOut()
@@ -861,14 +972,14 @@
             working.activity = true;
 
             Effect.Fade('activityPreview', {
-        		duration: 0.5,
-        		afterFinishInternal: function()
-        		{
+                duration: 0.5,
+                afterFinishInternal: function()
+                {
                     working.activity = false;
                     activityIsOpen = false;
                     activityPreviewInit = false;
-        		}
-        	});
+                }
+            });
         }, 800);
     }
 
@@ -1373,5 +1484,6 @@
         initComment();
         initActivity();
         initSubmit();
+        initPreview();
     };
 

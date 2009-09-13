@@ -63,12 +63,18 @@ margin: 20px 0 0 0;
 {
 margin: -5px 10px 0 10px;
 background: url('http://www.map-factory.org/media/image/layout/logo_small.png') 0 10px no-repeat;
-
-min-width: 880px;
+min-width: 850px;
 min-height: 100%;
 height: auto !important;
 height: 100%;
 margin-bottom: -176px;
+}
+
+#center
+{
+max-width: 1090px;
+position: relative;
+margin: 0 auto;
 }
 
 
@@ -221,6 +227,8 @@ float: left;
 #colRight_map
 {
 margin: 0 0 0 450px;
+position: relative;
+max-width: 640px;
 }
 
 #colLeft_list
@@ -462,16 +470,23 @@ font-weight: normal;
 
 /* ================== PREVIEW */
 
+#preview
+{
+padding: 20px 0 0 0;
+overflow: hidden;
+white-space: nowrap;
+}
+
+#preview img
+{
+width: 100%;
+display: inline;
+margin: 0 10px 0 0;
+}
+
 #previewList
 {
 margin: 10px 0 0 0;
-border-top: solid 5px #ccc;
-border-width: 2px 0;
-background: #ccc;
-overflow-x: auto;
-overflow-y: hidden;
-white-space: nowrap;
-position:relative;
 }
 
 #previewList li
@@ -484,6 +499,23 @@ margin: 0 8px 0 0;
 {
 display: inline;
 margin: 0;
+}
+
+#preview_nav
+{
+/*background: url(http://www.map-factory.org/media/image/layout/preview_nav_background.png) center center no-repeat;*/
+background: url(http://localhost/mapfactory_v5/media/image/layout/preview_nav_background.png) no-repeat;
+margin: -45px 0 0 8px;
+padding: 3px 4px;
+width: 80px;
+height: 32px;
+position: relative;
+}
+
+#preview_nav a
+{
+margin: 0 2px;
+outline: none;
 }
 
 
