@@ -54,7 +54,7 @@
 
     if ($tpl->isCached('cached/map_list.tpl', 60) == false)
     {
-    	$rs = $db->select('SELECT
+        $rs = $db->select('SELECT
             m.id                    AS id,
             m.title                 AS title,
             m.guid                  AS guid,
@@ -89,7 +89,7 @@
             GROUP BY m.id
             ORDER BY ' . $orderBy . ' DESC',
             (($_GET['p'] > 0) ? $_GET['p'] - 1 : $_GET['p']) * MAP_PER_PAGE, MAP_PER_PAGE
-    	);
+        );
 
         if ($rs['total'] != 0)
         {
@@ -119,6 +119,8 @@
                     'class'          => ($key % 2 == 0) ? 'pair' : 'odd'
                 ));
             }
+
+            $tpl->assignSection('result');
         }
         else
         {
@@ -126,30 +128,48 @@
         }
 
 
-    	/////////////////////////
-    	// NOT RESULTS
-    	/////////////////////////
+        /////////////////////////
+        // NOT RESULTS
+        /////////////////////////
 
-    	$pageTotal = ceil($rs['total'] / MAP_PER_PAGE);
-    	$link = '';
-    	$link .= (isset($_GET['game']) && is_string($_GET['game'])) ? $_GET['game'] . '/' : '';
-    	$link .= (isset($_GET['gametype']) && is_string($_GET['gametype'])) ? $_GET['gametype'] . '/' : '';
-    	$link .= (isset($_GET['q']) && is_string($_GET['q'])) ? 'search/' . $_GET['q'] . '/' : '';
-    	$n = 1;
+        $pageTotal = ceil($rs['total'] / MAP_PER_PAGE);
+        $link = '';
+        $link .= (isset($_GET['game']) && is_string($_GET['game'])) ? $_GET['game'] . '/' : '';
+        $link .= (isset($_GET['gametype']) && is_string($_GET['gametype'])) ? $_GET['gametype'] . '/' : '';
+        $link .= (isset($_GET['q']) && is_string($_GET['q'])) ? 'search/' . $_GET['q'] . '/' : '';
+        $n = 1;
 
         if ($rs['total'] == 0)
         {
             if (isOk($_GET['q']))
             {
+                $inPageTitle = 'Oups ! no map found ...';
+
                 $tpl->assignVar(array
                 (
-                    'page_title'    => 'Oups ! no map found ...',
-                    'search_path'   => str_replace(array('/', '-'), array(' >> ', ' '), preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link))
+                    'page_title'  => 'Oups ! no map found ...',
+                    'search_path' => str_replace(array('/', '-'), array(' >> ', ' '), preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link))
                 ));
 
                 if (isOk($_GET['game']))
                 {
                     $tpl->assignSection('noResult_tip1');
+                }
+            }
+            else if (isOk($_GET['limitto']))
+            {
+                $inPageTitle = 'Oups ! no map found ...';
+
+                $tpl->assignVar(array
+                (
+                    'page_title'        => 'Oups ! no map found ...',
+                    'search_path'       => str_replace(array('/', '-'), array(' >> ', ' '), preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link)),
+                    'search_suggestion' => preg_replace('#^(\/*)(.*)(\/*)$#isU', '$2', $link)
+                ));
+
+                if (isOk($_GET['game']))
+                {
+                    $tpl->assignSection('noResult_tip2');
                 }
             }
             else
@@ -213,13 +233,13 @@
 
 
 
-    	/////////////////////////
-    	// PAGINATION
-    	/////////////////////////
+        /////////////////////////
+        // PAGINATION
+        /////////////////////////
 
-    	if ($_GET['p'] > 0)
-    	{
-    	   $_GET['p'] --;
+        if ($_GET['p'] > 0)
+        {
+           $_GET['p'] --;
         }
 
         $currentParameters = '?';
@@ -227,8 +247,8 @@
         $currentParameters .= ((isOK($_GET['limitto'])) ? 'limitto=' . $_GET['limitto'] . '&' : '');
         $currentParameters = ((strlen($currentParameters) == 1) ? '' : substr($currentParameters, 0, -1));
 
-    	for ($p = 0; $p < $pageTotal; $p ++)
-    	{
+        for ($p = 0; $p < $pageTotal; $p ++)
+        {
             if ($p > 2 && $p < $_GET['p'] - 4)
             {
                 $p = $_GET['p'] - 4;
@@ -249,10 +269,10 @@
                 'link'   => $link . (($p == 0) ? '' : $p + 1) . $currentParameters,
                 'class'  => ($p == $_GET['p']) ? 'on' : 'off'
             ));
-    	}
+        }
 
-    	if ($pageTotal > 1)
-    	{
+        if ($pageTotal > 1)
+        {
             $tpl->assignSection('pagination');
 
             $tpl->assignVar(array
@@ -270,14 +290,14 @@
             {
                 $tpl->assignSection('pagination_next');
             }
-    	}
+        }
 
 
 
 
-    	/////////////////////////
-    	// SORT BY / LIMIT TO
-    	/////////////////////////
+        /////////////////////////
+        // SORT BY / LIMIT TO
+        /////////////////////////
 
         $tpl->assignSection('sortBy');
         $tpl->assignSection('limitTo');
@@ -323,20 +343,20 @@
 
 
 
-    	/////////////////////////
-    	// RESULT INFOS
-    	/////////////////////////
+        /////////////////////////
+        // RESULT INFOS
+        /////////////////////////
 
-    	$tpl->assignSection('result_info');
+        $tpl->assignSection('result_info');
 
-    	$to = ($_GET['p'] * MAP_PER_PAGE) + MAP_PER_PAGE + 1;
+        $to = ($_GET['p'] * MAP_PER_PAGE) + MAP_PER_PAGE + 1;
 
-    	$tpl->assignVar(array
-    	(
+        $tpl->assignVar(array
+        (
             'result_from'     => number_format(($_GET['p'] * MAP_PER_PAGE) + 1, 0, '', ','),
             'result_to'       => number_format(($to > $rs['total']) ? $rs['total'] : $to, 0, '', ','),
             'result_total'    => number_format($rs['total'], 0, '', ',')
-    	));
+        ));
     }
 
     $tpl->assignVar(array
@@ -351,47 +371,50 @@
 
     $pageKeyword = implode(', ', $keywordList);
 
-    if (!isOK($_GET['q']) && !isOK($_GET['game']) && !isOK($_GET['gametype']))
+    if ($rs['total'] != 0)
     {
-        $inPageTitle = 'Latest maps';
-        $pageTitle = 'Map Factory - the game map database';
-        $pageDescriptiom = 'Download custom Maps for your favorit FPS (First Person Shooters) games, and submit your own maps.';
-    }
-    else
-    {
-        $pageTitle = '';
-
-        if (isOK($_GET['q']))
+        if (!isOK($_GET['q']) && !isOK($_GET['game']) && !isOK($_GET['gametype']))
         {
-            $pageTitle .= 'Results for "' . utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q'])))) . '"';
-            $pageDescriptiom = 'Search results for ' . utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q']))));
+            $inPageTitle = 'Latest maps';
+            $pageTitle = 'Map Factory - the game map database';
+            $pageDescriptiom = 'Download custom Maps for your favorit FPS (First Person Shooters) games, and submit your own maps.';
         }
         else
         {
-            $pageDescriptiom = 'Download a large selection of the best';
+            $pageTitle = '';
+
+            if (isOK($_GET['q']))
+            {
+                $pageTitle .= 'Results for "' . utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q'])))) . '"';
+                $pageDescriptiom = 'Search results for ' . utf8_encode(htmlspecialchars(rawurldecode(stripslashes($_GET['q']))));
+            }
+            else
+            {
+                $pageDescriptiom = 'Download a large selection of the best';
+            }
+
+            if (isOK($_GET['game']))
+            {
+                $rs = $db->select('SELECT name FROM game WHERE guid="' . $_GET['game'] . '"');
+
+                $pageTitle .= ((isOK($_GET['q'])) ? ' in ' : '') . $rs['result'][0]['name'];
+                $pageDescriptiom .= ((isOK($_GET['q'])) ? ' in ' : ' ') . $rs['result'][0]['name'];
+                $pageKeyword = $rs['result'][0]['name'] . ', ' . $pageKeyword;
+            }
+
+            if (isOK($_GET['gametype']))
+            {
+                $rs = $db->select('SELECT name FROM gametype WHERE guid="' . $_GET['gametype'] . '"');
+
+                $pageTitle .= ' ' . $rs['result'][0]['name'];
+                $pageDescriptiom .= ' ' . $rs['result'][0]['name'];
+                $pageKeyword = $rs['result'][0]['name'] . ', ' . $pageKeyword;
+            }
+
+            $pageTitle .= ' maps';
+            $pageDescriptiom .= ' maps';
+            $inPageTitle = $pageTitle;
         }
-
-        if (isOK($_GET['game']))
-        {
-            $rs = $db->select('SELECT name FROM game WHERE guid="' . $_GET['game'] . '"');
-
-            $pageTitle .= ((isOK($_GET['q'])) ? ' in ' : '') . $rs['result'][0]['name'];
-            $pageDescriptiom .= ((isOK($_GET['q'])) ? ' in ' : ' ') . $rs['result'][0]['name'];
-            $pageKeyword = $rs['result'][0]['name'] . ', ' . $pageKeyword;
-        }
-
-        if (isOK($_GET['gametype']))
-        {
-            $rs = $db->select('SELECT name FROM gametype WHERE guid="' . $_GET['gametype'] . '"');
-
-            $pageTitle .= ' ' . $rs['result'][0]['name'];
-            $pageDescriptiom .= ' ' . $rs['result'][0]['name'];
-            $pageKeyword = $rs['result'][0]['name'] . ', ' . $pageKeyword;
-        }
-
-        $pageTitle .= ' maps';
-        $pageDescriptiom .= ' maps';
-        $inPageTitle = $pageTitle;
     }
 
     $tpl->assignVar (array (

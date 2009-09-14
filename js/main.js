@@ -17,6 +17,11 @@
 
     function initPreview()
     {
+        if (!$('preview'))
+        {
+            return;
+        }
+
         previewCheckArrows();
         previewWidth = $$('#preview img')[0].getWidth() + 10;
 

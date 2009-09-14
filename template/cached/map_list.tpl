@@ -79,6 +79,9 @@
         <!-- SECTION noResult_tip1 -->
         <p><b>TIPS :</b> <a href="{ROOT_PATH}search/{search_query}">Look for <b>"{search_query}"</b> in the whole site ...</a></p>
         <!-- END noResult_tip1 -->
+        <!-- SECTION noResult_tip2 -->
+        <p><b>TIPS :</b> <a href="{ROOT_PATH}{search_suggestion}">Try with less filter in your query ...</a></p>
+        <!-- END noResult_tip2 -->
     </div>
     <!-- END noResult -->
 

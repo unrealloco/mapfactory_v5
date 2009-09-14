@@ -24,6 +24,7 @@
         <div id="colLeft_list">
             <!-- INCLUDE cached/map_list.tpl 60 -->
 
+            <!-- SECTION result -->
             <div id="pub_bottom">
                 <script type="text/javascript"><!--
                 google_ad_client = "pub-3305665136679236";
@@ -37,6 +38,7 @@
                 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                 </script>
             </div>
+            <!-- END result -->
         </div>
     </div>
 
