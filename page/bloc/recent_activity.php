@@ -8,9 +8,9 @@
 
     if ($tpl->isCached('cached/latest_activity.tpl', 60) == false)
     {
-    	$rs = $db->select('SELECT
-    	    a.type                  AS type,
-    	    SUM(total)              AS total,
+        $rs = $db->select('SELECT
+            a.type                  AS type,
+            SUM(total)              AS total,
             m.id                    AS id,
             m.title                 AS title,
             m.guid                  AS guid,
@@ -32,7 +32,7 @@
 
             GROUP BY a.type, map_id
             ORDER BY a.total, a.type DESC'
-    	);
+        );
 
         $total = 0;
         $activityList = array();
@@ -74,7 +74,7 @@
             $item = $rs['result'][$activityList[$id][0]['key']];
 
             $tpl->assignLoopVar('activity', array
-    		(
+            (
                     'id'             => $item['id'],
                     'title'          => $item['title'],
                     'game'           => $item['game'],
@@ -84,7 +84,7 @@
                     'map_guid'       => $item['guid'],
                     'game_guid'      => $item['game_guid'],
                     'gametype_guid'  => $item['gametype_guid']
-    		));
+            ));
 
             foreach ($activityList[$id] as $a)
             {
