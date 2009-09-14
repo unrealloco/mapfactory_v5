@@ -503,8 +503,7 @@ margin: 0;
 
 #preview_nav
 {
-/*background: url(http://www.map-factory.org/media/image/layout/preview_nav_background.png) center center no-repeat;*/
-background: url(http://localhost/mapfactory_v5/media/image/layout/preview_nav_background.png) no-repeat;
+background: url(http://www.map-factory.org//media/image/layout/preview_nav_background.png) no-repeat;
 margin: -45px 0 0 8px;
 padding: 3px 4px;
 width: 80px;
