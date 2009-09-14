@@ -53,9 +53,7 @@
 
             <ul>
                 <li>
-                    <a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}" alt="{map.title}" title="{map.game} {map.title}">
-                        <strong>{map.title}</strong>
-                    </a>
+                    <h2><a href="{ROOT_PATH}{map.game_guid}/{map.gametype_guid}/{map.map_guid}-{map.id}" alt="{map.title}" title="{map.game} {map.title}"><strong>{map.title}</strong></a></h2>
                 </li>
                 <li>
                     <a href="{ROOT_PATH}{map.game_guid}" alt="{map.game}" title="{map.game} custom maps">{map.game}</a>
