@@ -41,7 +41,7 @@
 
     function encodeCurly($text)
     {
-        return str_replace(array('{', '}'), array('$#123;', '&#125;'), $text);
+        return str_replace(array('{', '}'), array('&#123;', '&#125;'), $text);
     }
 
     function checkMail($email){
