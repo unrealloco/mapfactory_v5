@@ -55,13 +55,13 @@
             $tpl->assignVar(array
             (
                     'id'             => $item['id'],
-                    'title'          => $item['title'],
-                    'game'           => $item['game'],
-                    'gametype'       => $item['gametype'],
-                    'author'         => $item['author'],
+                    'title'          => encodeCurly($item['title']),
+                    'game'           => encodeCurly($item['game']),
+                    'gametype'       => encodeCurly($item['gametype']),
+                    'author'         => encodeCurly($item['author']),
                     'author_id'      => $item['author_id'],
                     'image'          => $item['image'],
-                    'description'    => $item['description'],
+                    'description'    => encodeCurly($item['description']),
                     'download'       => $item['download'],
                     'download_s'     => ($item['download'] > 1) ? 's' : '',
                     'comment'        => $item['comment'],

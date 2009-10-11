@@ -39,6 +39,11 @@
             return false;
     }
 
+    function encodeCurly($text)
+    {
+        return str_replace(array('{', '}'), array('$#123;', '&#125;'), $text);
+    }
+
     function checkMail($email){
             $atom = '[-a-z0-9!#$%&\'*+/=?^_`{|}~]';
             $domain = '[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])';

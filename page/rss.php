@@ -6,12 +6,12 @@
     $tpl->setCacheKey('cached/rss.tpl', 'rss');
 
 
-	$lastBuildDate = '';
+    $lastBuildDate = '';
 
 
     if ($tpl->isCached('cached/rss.tpl', 60) == false)
     {
-    	$rs = $db->select('SELECT
+        $rs = $db->select('SELECT
             m.id                    AS id,
             m.date                  AS map_date,
             m.title                 AS title,
@@ -39,7 +39,7 @@
             GROUP BY m.id
             ORDER BY m.date DESC',
             0, 32
-    	);
+        );
 
         if ($rs['total'] != 0)
         {
@@ -67,13 +67,13 @@
                 (
                     'id'             => $item['id'],
                     'date'           => date('r', $item['map_date']),
-                    'title'          => xmlFormat($item['title']),
+                    'title'          => encodeCurly(xmlFormat($item['title'])),
 
-                    'description'    => xmlFormat($description),
+                    'description'    => encodeCurly(xmlFormat($description)),
 
-                    'game'           => $item['game'],
-                    'gametype'       => $item['gametype'],
-                    'author'         => xmlFormat($item['author']),
+                    'game'           => encodeCurly(encodeCurly($item['game'])),
+                    'gametype'       => encodeCurly(encodeCurly($item['gametype'])),
+                    'author'         => encodeCurly(xmlFormat($item['author']),
                     'author_id'      => $item['author_id'],
 
                     'map_guid'       => $item['guid'],
