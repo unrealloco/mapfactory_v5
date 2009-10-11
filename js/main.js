@@ -17,7 +17,7 @@
 
     function initPreview()
     {
-        if (!$('preview'))
+        if (!$('preview_nav'))
         {
             return;
         }
