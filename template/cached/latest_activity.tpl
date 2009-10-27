@@ -17,3 +17,5 @@
         <!-- END activity -->
     </ul>
 
+    <div id="activityPreview"></div>
+

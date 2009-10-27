@@ -42,7 +42,5 @@
         </div>
     </div>
 
-    <div id="activityPreview"></div>
-
     <div class="clear"></div>
 

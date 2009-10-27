@@ -836,7 +836,7 @@
     {
         var block = $('activityPreview');
 
-        var top = block.cumulativeOffset()[1];
+        var top = block.cumulativeOffset()[1] - block.up().cumulativeOffset()[1];
 
         if (top <= activityPreviewTop + 2 && top >= activityPreviewTop - 2)
         {
@@ -858,7 +858,7 @@
 
         if (id != avtivityPreviewId)
         {
-            activityPreviewTop = this.cumulativeOffset()[1];
+            activityPreviewTop = this.cumulativeOffset()[1] - this.up().up().cumulativeOffset()[1];
 
             if (!activityPreviewInit)
             {

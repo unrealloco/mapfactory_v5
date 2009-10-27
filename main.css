@@ -994,9 +994,10 @@ background: #ccc;
 width: 160px;
 height: 120px;
 position: absolute;
-right: 310px;
+right: 300px;
 border: solid 2px #ccc;
 visibility: hidden;
+z-index: 2;
 }
 
 
