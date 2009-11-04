@@ -7,7 +7,7 @@
     header("Cache-Control: no-cache");
 
     set_time_limit(30);
-    ini_set("memory_limit",'8M');
+    ini_set("memory_limit",'16M');
 
     $rs = $db->select('SELECT * FROM '.$_POST['type'].' ORDER BY '.$_POST['orderBy'].' '.$_POST['sortOrder']);
 
