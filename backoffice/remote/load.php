@@ -6,6 +6,9 @@
     header('Content-Type: application/json; charset=utf-8');
     header("Cache-Control: no-cache");
 
+    set_time_limit(30);
+    ini_set("memory_limit",'8M');
+
     $rs = $db->select('SELECT * FROM '.$_POST['type'].' ORDER BY '.$_POST['orderBy'].' '.$_POST['sortOrder']);
 
 /*
