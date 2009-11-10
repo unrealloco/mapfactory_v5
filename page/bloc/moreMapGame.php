@@ -54,10 +54,10 @@
             $tpl->assignLoopVar('moreMapGame', array
             (
                     'id'             => $item['id'],
-                    'title'          => $item['title'],
-                    'game'           => $item['game'],
-                    'gametype'       => $item['gametype'],
-                    'author'         => $item['author'],
+                    'title'          => encodeCurly($item['title']),
+                    'game'           => encodeCurly($item['game']),
+                    'gametype'       => encodeCurly($item['gametype']),
+                    'author'         => encodeCurly($item['author']),
                     'author_id'      => $item['author_id'],
                     'image'          => $item['image'],
                     'comment'        => $item['comment'],

@@ -76,9 +76,9 @@
             $tpl->assignLoopVar('activity', array
             (
                     'id'             => $item['id'],
-                    'title'          => $item['title'],
-                    'game'           => $item['game'],
-                    'gametype'       => $item['gametype'],
+                    'title'          => encodeCurly($item['title']),
+                    'game'           => encodeCurly($item['game']),
+                    'gametype'       => encodeCurly($item['gametype']),
                     'image'          => $item['image'],
 
                     'map_guid'       => $item['guid'],

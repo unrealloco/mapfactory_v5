@@ -6,7 +6,6 @@
     header("HTTP/1.1 400 Bad Request");
 
 
-//    mail404();
     log404('400.php');
 
 

@@ -3,8 +3,7 @@
     include ('bloc/search.php');
 
 
-//        mail404();
-        log404('404.php');
+    log404('404.php');
 
 
     /////////////////////////

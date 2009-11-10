@@ -418,9 +418,9 @@
     }
 
     $tpl->assignVar (array (
-            'page_title'          => $inPageTitle,
-            'PAGE_TITLE'          => $pageTitle,
-            'PAGE_DESCRIPTION'    => $pageDescriptiom,
-            'PAGE_KEYWORDS'       => $pageKeyword
+            'page_title'          => encodeCurly($inPageTitle),
+            'PAGE_TITLE'          => encodeCurly($pageTitle),
+            'PAGE_DESCRIPTION'    => encodeCurly($pageDescriptiom),
+            'PAGE_KEYWORDS'       => encodeCurly($pageKeyword)
     ));
 

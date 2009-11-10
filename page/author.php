@@ -146,8 +146,8 @@
     /////////////////////////
 
     $tpl->assignVar (array (
-        'PAGE_TITLE' => $authorName.' maps',
-        'PAGE_DESCRIPTION' => 'Download all the maps made by '.$authorName.' on Map Factory.',
-        'PAGE_KEYWORDS' => $authorName . ', ' . implode(', ', $keywordList)
+        'PAGE_TITLE' => encodeCurly($authorName.' maps'),
+        'PAGE_DESCRIPTION' => encodeCurly('Download all the maps made by '.$authorName.' on Map Factory.'),
+        'PAGE_KEYWORDS' => encodeCurly($authorName . ', ' . implode(', ', $keywordList))
     ));
 

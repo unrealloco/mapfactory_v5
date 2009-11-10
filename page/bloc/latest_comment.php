@@ -30,7 +30,7 @@
             (
                 'date'       => timeWarp($item['date']),
                 'name'       => $item['name'],
-                'message'    => cutText($item['message'], 120)
+                'message'    => encodeCurly(cutText($item['message'], 120))
             ));
         }
     }

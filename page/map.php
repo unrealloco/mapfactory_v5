@@ -225,9 +225,9 @@
             $tpl->assignLoopVar('moreMapFrom', array
             (
                 'id'             => $item['id'],
-                'title'          => $item['title'],
-                'game'           => $item['game'],
-                'gametype'       => $item['gametype'],
+                'title'          => encodeCurly($item['title']),
+                'game'           => encodeCurly($item['game']),
+                'gametype'       => encodeCurly($item['gametype']),
                 'image'          => $item['image'],
 
                 'map_guid'       => makeGUID($item['title']),
@@ -252,8 +252,8 @@
     /////////////////////////
 
     $tpl->assignVar (array (
-        'PAGE_TITLE'          => $gameName.' - '.$mapTitle,
-        'PAGE_DESCRIPTION'    => $mapTitle . ', a '.$gametypeName.' map for '.$gameName.', realised by '.$authorName,
-        'PAGE_KEYWORDS'       => $mapTitle.', '.$gameName.', '.$gametypeName.', '.$authorName.', '.implode(', ', $keywordList)
+        'PAGE_TITLE'          => encodeCurly($gameName.' - '.$mapTitle),
+        'PAGE_DESCRIPTION'    => encodeCurly($mapTitle . ', a '.$gametypeName.' map for '.$gameName.', realised by '.$authorName),
+        'PAGE_KEYWORDS'       => encodeCurly($mapTitle.', '.$gameName.', '.$gametypeName.', '.$authorName.', '.implode(', ', $keywordList))
     ));
 

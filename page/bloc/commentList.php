@@ -42,8 +42,8 @@
             $tpl->assignLoopVar('comment', array
             (
                 'time'       => timeWarp($comment['date']),
-                'name'       => $comment['name'],
-                'message'    => $message,
+                'name'       => encodeCurly($comment['name']),
+                'message'    => encodeCurly($message),
                 'id'         => $comment['id']
             ));
 
@@ -58,8 +58,8 @@
                     $tpl->assignLoopVar('comment.response', array
                     (
                             'time'       => timeWarp($response['date']),
-                            'name'       => $response['name'],
-                            'message'    => $message
+                            'name'       => encodeCurly($response['name']),
+                            'message'    => encodeCurly($message)
                     ));
                 }
             }
